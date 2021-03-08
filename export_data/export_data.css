@@ -1,0 +1,193 @@
+.page_7_sample_1{
+	display:none;
+	direction:rtl;
+	height:40px;
+	background-color:aqua;
+	border-radius:4px;
+	border:1px solid blue;
+	margin:20px;
+	
+}
+.page_7_button_x{
+	position:relative;
+	margin-left:40px;
+	background-color:white;
+	border:1px solid blue;
+	border-radius:3px;
+	color:darkblue;
+	direction:rtl;
+}
+#page_7 .search_box_title{
+	position:absolute;
+	right:55px;
+	top:447px;
+	direction:rtl;
+	color:darkblue;
+}
+#page_7 .search_box{
+	height: 35px;
+    position: absolute;
+    right: 49px;
+    top: 513px;
+    width: 263px;
+    border: 1px solid blue;
+    border-radius: 4px;
+    font-size: 28px;
+    direction: rtl;
+}
+
+.chart .child_1{
+    position: absolute;
+    width: 150px;
+    height: 40px;
+    padding: 5px;
+    background-color: aqua;
+    border: 1px solid blue;
+    border-radius: 4px;
+    top: 90px;
+    right: 54px;
+}
+
+.chart .child_2{
+    position: absolute;
+    height: 40px;
+    padding: 5px;
+    background-color: aqua;
+    border: 1px solid blue;
+    border-radius: 4px;
+    top: 90px;
+    right: 321px;
+    width: 113px;
+}
+
+.chart .child_3{
+	position: absolute;
+    height: 40px;
+    width: 216px;
+    padding: 5px;
+    background-color: aqua;
+    border: 1px solid blue;
+    border-radius: 4px;
+    top: 90px;
+    right: 647px;
+}
+.chart .child_1 p,.chart .child_2 p,.chart .child_3 p{
+	direction:rtl;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	padding:0px;
+	margin:0px;
+	
+}
+.chart .box_1,.chart .box_2,.chart .box_3{
+	position:absolute;
+	border:1px solid blue;
+	background-color:lightsalmon;
+	border-radius:5px;
+	height:270px;
+	direction:rtl;
+	padding:5px;
+	top: 149px;
+}
+.chart .box_1{
+	    width: 233px;
+    
+    right: 51px;
+}
+.chart .box_2{
+	width: 289px;
+    right: 316px;
+}
+.chart .box_3{
+	    width: 308px;
+    right: 641px;
+
+}
+#export_container{
+	width:90%;
+	height:70%;
+	position: absolute;
+	right:5%;
+	top:610px;
+	background-color: white;
+	border-radius:3px;
+	border:1px solid blue;
+	padding:0px;
+	margin:0px;
+	overflow-x:hidden;
+	overflow-y:scroll;
+	direction:rtl;
+}
+.chart_button{
+	border:1px solid blue;
+	background-color:aqua;
+	display:inline-flex;
+	align-items:center;
+	justify-content:center;
+	padding:5px;
+	border-radius:4px;
+	margin:4px;
+	
+}
+.chart_button b{
+	direction:rtl;
+}
+.driver{
+	height:60px;
+	width:100%;
+	border-radius:3px;
+	background-color:aqua;
+	border:1px solid blue;
+	position:relative;
+	margin-bottom:3px;
+}
+.driver_code{
+	position:absolute;
+	top:50%;
+	transform:translate(0%,-50%);
+	right:20px;
+	background-color:blue;
+	height:40px;
+	width:40px;
+	border-radius: 7px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	color:aqua;
+	font-size:20px;
+}
+.driver_name{
+	    position: absolute;
+    top: 50%;
+    transform: translate(0%,-50%);
+    font-size: 25px;
+    direction: rtl;
+    color: white;
+    background-color: green;
+    right: 80px;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+#export_container .data{
+	color: white;
+    direction: rtl;
+    padding: 4px;
+    width: 97%;
+    height: 50px;
+    background-color: green;
+    border-radius: 5px;
+    margin: 10px;
+    font-size: 26px;
+}

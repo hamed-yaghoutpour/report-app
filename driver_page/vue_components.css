@@ -1,0 +1,48 @@
+.new_unread_report{
+	position:relative;
+	width:100%;
+	min-height:140px;
+	background-color:aqua;
+	border-radius:10px;
+	margin-bottom:10px;
+	
+}
+.new_unread_report .title{
+	position: absolute;
+	direction: rtl;
+	right: 20px;
+	margin: 0px;
+	top: 10px;
+}
+.new_unread_report .report_message{
+	position:relative;
+	top:60px;
+	width:auto;
+	min-height:50px;
+	border-top:1px solid darkblue;
+	font-family:"b yekan";
+	padding:20px;
+	padding-bottom:80px;
+	direction:rtl;
+}
+.new_unread_report .open_driver_page{
+		position: absolute;
+	top: 10px;
+	left: 10px;
+	height: 30px;
+	
+	background-color: green;
+	border: 0px;
+	border-radius: 3px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-family:"b yekan";
+	font-size:16px;
+}
+.new_unread_report .open_driver_page:hover{
+	background-color:aqua;
+	color:blue;
+	border:1px solid blue;
+}

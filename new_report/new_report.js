@@ -1,0 +1,15 @@
+$(document).ready(function(){
+	$(".submit").click(function(){
+		$.ajax({
+			url:"main.php",
+			data:{
+				new_report:"somethig",
+				driver_code:,
+				report_text:$(".input").val()
+			},
+			success:function(){
+				window.location.assign("driver_page.php");
+			}
+		});
+	});
+});

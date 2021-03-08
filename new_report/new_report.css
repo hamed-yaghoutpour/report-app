@@ -1,0 +1,37 @@
+.title{
+	position: absolute;
+    direction: rtl;
+    top: 110px;
+    right: 50px;
+    background-color: blue;
+    color: white;
+    padding: 5px;
+    border-radius: 7px;
+}
+.input{
+	    position: absolute;
+    direction: rtl;
+    font-size: 23px;
+    height: 50%;
+    width: 610px;
+    top: 200px;
+    border-radius: 7px;
+    resize: none;
+    right: 50px;
+}
+.submit{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    color: white;
+    position: absolute;
+    padding: 4px;
+    border: none;
+    height: 40px;
+    width: 170px;
+    top: 555px;
+    font-size: 20px;
+    right: 50px;
+    border-radius: 4px;
+}
