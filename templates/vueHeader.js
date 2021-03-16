@@ -1,4 +1,4 @@
-Vue.component('item',{
+Vue.component('myheader',{
     props:["home_button_available_state"],
     props:{
         home_button_available_state:Boolean
@@ -27,7 +27,8 @@ Vue.component('item',{
         }
     }
 })
-
-const app = new Vue({
-    el:"#vue_header_container"
-});
+$(document).ready(function() {
+    const app = new Vue({
+        el:"#vue_header_container"
+    });
+})

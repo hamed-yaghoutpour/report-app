@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>report app v1!</title>
+<link rel="icon" type="image/jpg" href="../common/logo-final-2.jpg">
+<link rel="stylesheet" href="../common/common.css">
+<link rel="stylesheet" href="new_driver.css">
+<script src="../common/jquery-3.5.1.js"></script>
+<script src="new_driver.js"></script>
+<script src="../common/vue.js"></script>
+<script src="../templates/vueHeader.js"></script>
+<link rel="stylesheet" href="../templates/header.css">
+</head>
+<body>
+	<div id="vue_header_container">
+		<myheader v-bind:home_button_available_state="true"></myheader>
+	</div>
+	
+	<h1 style="position:relative;margin:20px;color:darkblue;">ثبت راننده جدید</h1>
+	<h2 style="color:blue;margin-top:5px;">:اطلاعات راننده جدید را وارد کنید</h2>
+	<input id="input_1" class="t1" placeholder="شماره راننده">
+	<input id="input_2" class="t1" placeholder="نام راننده">
+	<input id="input_3" class="t1" placeholder="نام خانوادگی">
+	<input id="input_4" class="t1" placeholder="آدرس">
+	<input id="input_5" class="t1" placeholder="شماره تلفن همراه">
+	<input id="input_6" class="t1" placeholder="شماره منزل">
+	<input id="input_7" class="t1" style="height:100px;" placeholder="توضیحات اضافه درباره این راننده">
+
+	<button id="submit"><h3 class="no_margin no_padding">ثبت اطلاعات</h3></button>
+</body>
+</html>

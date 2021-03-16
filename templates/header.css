@@ -23,7 +23,7 @@ background-color:darkblue;
 margin:0px;
 padding:0px;
 z-index:1;
-
+top:0px;
 }
 #header #header_name{
 	color:darkblue;
