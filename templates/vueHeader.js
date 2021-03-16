@@ -1,7 +1,7 @@
 Vue.component('myheader',{
-    props:["home_button_available_state"],
+    props:["home_button_disabled"],
     props:{
-        home_button_available_state:Boolean
+        home_button_disabled:Boolean
     },
     template:`
         <div id="header">
@@ -18,7 +18,7 @@ Vue.component('myheader',{
     `,
     methods:{
         go_home_page:function(){
-            if(this.home_button_available_state){
+            if(!this.home_button_disabled){
                 window.location.assign("../home/home.php");
             }
         },

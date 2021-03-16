@@ -25,8 +25,31 @@ Vue.component('driver',{
 		}
 	}
 });
-$(document).ready(function(){
-	const app = new Vue({
-		el:"#container"
-	});
+
+const app = new Vue({
+	el:"#container",
+	data:{
+		drivers:[
+			{
+				driver_name:"hamed",
+				driver_code:22
+			},
+			{
+				driver_name:"hamed",
+				driver_code:22
+			},
+			
+		]
+	}
 });
+
+function update_page(){
+	$.ajax({
+		url:"actions.php",
+		success:function(data){
+			app.drivers = JSON.parse(data)
+		}
+	})
+}
+//update_page()
+

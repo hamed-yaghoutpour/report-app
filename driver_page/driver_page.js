@@ -1,5 +1,5 @@
 function update_page(driver_code){
-
+    //updating driver info: 
     $.ajax({
         url:"actions.php",
         data:{
@@ -13,6 +13,8 @@ function update_page(driver_code){
             $("#address").html(data.address);
             $("#extra_info").html(data.extra_info);
             $("#services_count").html(data.services_count);
+            $("#driver_code span").html(data.driver_code);
+            $("#driver_full_name").html(data.full_name);
         }
 
     })

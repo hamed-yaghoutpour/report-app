@@ -8,10 +8,15 @@
 <link rel="stylesheet" href="home.css">
 <script src="../common/jquery-3.5.1.js"></script>
 <script src="home.js"></script>
+<script src="../templates/vueHeader.js"></script>
+<link rel="stylesheet" href="../templates/header.css">
 </head>
 <body>
+	<div id="vue_header_container">
+		<myheader></myheader>
+	</div>
 <?php 
-include_once("../templates/header.php");
+
 include_once("../common/main.php");
 $sql = "
 	select * from reports where not (seen_status = 'true')
