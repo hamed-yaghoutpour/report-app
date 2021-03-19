@@ -113,34 +113,5 @@ Vue.component('service',{
 	}
 })
 
-var app = false;
 
-app = new Vue({
-	el:"#reports_container",
-	data:{
-		reports:[
-			/* {
-				report_id:22,
-				seen_status:true,
-				date:'hamed',
-				counter:2,
-				report_text:'report text is this'
-			} */
-		]
-	}
-});
-
-
-var services_app = new Vue({
-	el:"#services",
-	data:{
-		services:[
-			/* {
-				service_id :2,
-				time:100000,
-				counter:22
-			} */
-		]
-	}
-})
 

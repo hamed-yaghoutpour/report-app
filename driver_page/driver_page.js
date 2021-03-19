@@ -52,27 +52,51 @@ function update_page(driver_code){
 
 }
 
+$(".add_new_report_button").click(function(){
+    window.location.assign("../new_report/new_report.php?driver_code="+"driver_code");
+});
 
-$(document).ready(function(){
-    
-    
-    $(".add_new_report_button").click(function(){
-        window.location.assign("../new_report/new_report.php?driver_code="+"driver_code");
-    });
-
-    $(".plus").click(function(){
-        $.ajax({
-            url:"../ajax/add_service.php",
-            method:"GET",
-            data:{
-                driver_code: driver_code
-            },
-            success:function(){
-                update_service_records();
-            }
-        });
-    });
-    $(".edit_driver_info").click(function(){
-        window.location.assign("../edit_driver_info/edit_driver_info.php?driver_code=<?php echo $driver_code ?>");
+$(".plus").click(function(){
+    $.ajax({
+        url:"../ajax/add_service.php",
+        method:"GET",
+        data:{
+            driver_code: driver_code
+        },
+        success:function(){
+            update_service_records();
+        }
     });
 });
+$(".edit_driver_info").click(function(){
+    window.location.assign("../edit_driver_info/edit_driver_info.php?driver_code=<?php echo $driver_code ?>");
+});
+// turn on vue :
+const app = new Vue({
+	el:"#reports_container",
+	data:{
+		reports:[
+			{
+				report_id:22,
+				seen_status:true,
+				date:'hamed',
+				counter:2,
+				report_text:'report text is this'
+			}
+		]
+	}
+});
+
+
+const services_app = new Vue({
+	el:"#services",
+	data:{
+		services:[
+			{
+				service_id :2,
+				time:100000,
+				counter:22
+			}
+		]
+	}
+})

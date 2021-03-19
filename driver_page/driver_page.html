@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>report app v1!</title>
-<!-- order is important -->
-<link rel="icon" type="image/jpg" href="../common/logo-final-2.jpg">
-
-<link rel="stylesheet" href="../common/common.css">
-<script src="../common/jquery-3.5.1.js"></script>
-<link rel="stylesheet" href="driver_page.css">
-
-<script src="driver_page.js"></script>
-
-<script src="../common/vue.js"></script>
-
+	<meta charset="utf-8">
+	<title>report app v1!</title>
+	<link rel="icon" type="image/jpg" href="../common/logo-final-2.jpg">
+	<link rel="stylesheet" href="../common/common.css">
+	<script src="../common/jquery-3.5.1.js"></script>
+	<link rel="stylesheet" href="driver_page.css">
+	<link rel="stylesheet" href="../templates/container-like-github.css">
+	<script src="../common/vue.js"></script>
 
 </head>
 <body>
@@ -21,70 +16,76 @@
 		<myheader></myheader>
 	</div>
 
-<div id="vue_container">	
+<div id="vue_container">
+	<div class="container_1">
+		<div id="driver_image"></div>
+		<h1 id="driver_code">
+			#<span></span>
+		</h1>
+		<b id="driver_full_name">
 			
-	<div id="driver_image"></div>
-	<h1 id="driver_code">
-		#<span></span>
-	</h1>
-	<b id="driver_full_name">
-		
-	</b>
-	<div class="ex_info_container_1">
-		<h4>
-			شماره تلفن همراه:  <span id="mobile_phone_number"></span>
-		</h4>
-		<h4>
-			شماره تلفن منزل: <span id="home_phone_number"></span>
-		</h4>
-		<h4>
-			آدرس: <span id="address"></span>		
-		</h4>
-		<h4>
-			اطلاعات بیشتر درباره این راننده: <span id="extra_info"></span>
-		</h4>
-		<h4>
-			تعداد گزارش ها: <span id="services_count"></span>
-		</h4>
+		</b>
+		<div class="ex_info_container_1">
+			<h4>
+				شماره تلفن همراه:  <span id="mobile_phone_number"></span>
+			</h4>
+			<h4>
+				شماره تلفن منزل: <span id="home_phone_number"></span>
+			</h4>
+			<h4>
+				آدرس: <span id="address"></span>		
+			</h4>
+			<h4>
+				اطلاعات بیشتر درباره این راننده: <span id="extra_info"></span>
+			</h4>
+			<h4>
+				تعداد گزارش ها: <span id="services_count"></span>
+			</h4>
+		</div>
+
+		<button class="edit_driver_info">
+			<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pen-fill" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" d="M13.498.795l.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z"/>
+			</svg>
+		</button>
+	</div>
+	<div class="container-like-github">
+		<div class="box-top">
+			<h1 class="title">گزارش ها</h1>
+			<button class="add_new_report_button">+</button>
+		</div>
+		<div class="box-content" id="reports_container">
+			<report 
+			v-for="report in reports"
+			v-bind:report_id="report.report_id"
+			v-bind:check_status="report.seen_status"
+			v-bind:date="report.date"
+			v-bind:counter="report.counter"
+			v-bind:report_text="report.report_text"
+			></report>
+		</div>
+	</div>
+	<div class="container-like-github">
+		<div class="box-top">
+			<h1 class="title">سرویس ها</h1>
+			<button class="plus">+</button>
+		</div>
+		<div class="box-content services" id="services">
+			<service
+			v-for="service in services"
+			v-bind:service_id="service.service_id"
+			v-bind:time="service.time"
+			v-bind:counter="service.counter"
+			></service>
+		</div>
 	</div>
 
-	<button class="edit_driver_info">
-		<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pen-fill" xmlns="http://www.w3.org/2000/svg">
-			<path fill-rule="evenodd" d="M13.498.795l.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z"/>
-		</svg>
-	</button>
-	<b id="reports_title">
-		گزارش ها
-	</b>
-	<button class="add_new_report_button">
-		<h3>+</h3>
-	</button>
-	<div id="seperator_1"></div>
-	<div id="reports_container">
-		<report 
-		v-for="report in reports"
-		v-bind:report_id="report.report_id"
-		v-bind:check_status="report.seen_status"
-		v-bind:date="report.date"
-		v-bind:counter="report.counter"
-		v-bind:report_text="report.report_text"
-		></report>
-	</div>
-	
-	<b id="title_2">سرویس ها</b>
-	<button class="plus">+</button>
-	<div id="seperator_2"></div>
-	<div class="services" id="services">
-		<service 
-		v-for="service in services"
-		v-bind:service_id="service.service_id"
-		v-bind:time="service.time"
-		v-bind:counter="service.counter"
-		></service>
-	</div>
+		
 </div>
+
 <script src="vue_components/vue_report_component.js"></script>
 <link rel="stylesheet" href="vue_components/vue_report_component.css">
+<script src="driver_page.js"></script>
 
 <script src="../templates/vueHeader.js"></script>
 <link rel="stylesheet" href="../templates/header.css">
