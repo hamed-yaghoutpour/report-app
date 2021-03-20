@@ -10,7 +10,7 @@ $(document).ready(function(){
 			var mobile_phone_numebr = $("#mobile_phone_number_input").val();
 			var home_phone_number = $("#home_phone_number_input").val();
 			var extra_info = $("#extra_info_input").val();
-			//make ajax call to update data to server:
+			//make ajax call to update data from server:
 			$.ajax({
 				url:"../ajax/edit_driver_info.php",
 				data:{
