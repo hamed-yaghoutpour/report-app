@@ -1,0 +1,9 @@
+.pages-container{
+	position:fixed;
+	top:0px;
+	left:20%;
+	height:100%;
+	width:80%;
+	background-color:#5F9EA0;
+	overflow:auto;
+}

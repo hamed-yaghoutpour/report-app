@@ -1,0 +1,59 @@
+#login_part{
+	    width: 350px;
+    height: 500px;
+    border: 1px solid blue;
+    border-radius: 3px;
+    background-color: white;
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.profile_image{
+	border-radius:90%;
+	background-color:blue;
+	height:100px;
+	width:100px;
+	margin:125px;
+	margin-top:50px;
+	margin-bottom:20px;
+}
+.title{
+	margin-top:20px;
+	color:darkblue;
+	text-align:center;
+}
+.tip{
+	margin-top:20px;
+	color:darkblue;
+	text-align:center;
+}
+#username_input{
+	width:180px;
+	height:30px;
+	margin-top:10px;
+	margin-left:85px;
+	margin-right:85px;
+	padding:0px;
+	text-align:center;
+}
+#login_input{
+	width:180px;
+	height:30px;
+	margin-top:10px;
+	margin-left:85px;
+	margin-right:85px;
+	padding:0px;
+	text-align:center;
+}
+#login_button{
+	width:184px;
+	height:30px;
+	margin-top:20px;
+	margin-left:85px;
+	margin-right:85px;
+	border:2px solid blue;
+	border-radius:3px;
+	padding:0px;
+	text-align:center;
+}

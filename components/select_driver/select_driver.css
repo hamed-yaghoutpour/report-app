@@ -1,0 +1,71 @@
+#select_driver_page #container{
+    width: 90%;
+    min-height: 200px;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid blue;
+	padding:5px;
+	overflow-y: scroll;
+}
+#select_driver_page .driver{
+	height:60px;
+	width:100%;
+	border-radius:3px;
+	background-color:aqua;
+	border:1px solid blue;
+	position:relative;
+	margin-bottom:3px;
+}
+#select_driver_page .driver_code{
+	position:absolute;
+	top:50%;
+	transform:translate(0%,-50%);
+	right:20px;
+	background-color:blue;
+	height:40px;
+	width:40px;
+	border-radius: 7px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	color:aqua;
+	font-size:20px;
+}
+#select_driver_page .driver_name{
+	    position: absolute;
+    top: 50%;
+    transform: translate(0%,-50%);
+    font-size: 25px;
+    direction: rtl;
+    color: white;
+    background-color: green;
+    right: 80px;
+    border-radius: 4px;
+    padding: 5px;
+}
+#select_driver_page .open_driver_page_button{
+    position: absolute;
+    top: 50%;
+    transform: translate(0%,-50%);
+    left: 20px;
+    background-color: blue;
+    height: 35px;
+    border: 1px solid darkblue;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 6px;
+    font-size: 20px;
+	transition:0.2s;
+}
+#select_driver_page .open_driver_page_button:hover{
+	color:black;
+	background-color:white;
+	
+}
