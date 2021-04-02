@@ -26,37 +26,32 @@ function load_js(paths){
 }
 
 
-
 let js_files = [
 	"./archive/jquery-3.5.1.js",
 	"./archive/vue.js",
 	"./archive/vue-router.js",
-	"./components/buttons_container/buttons-panel.js",
-	"components/pages_container/pages_container.js",
-	"components/settings/settings.js",
-	"components/driver_page/driver_page.js",
-	"components/login/login.js",
-	"components/new_driver/new_driver.js",
-	"components/select_driver/select_driver.js",
-	"components/edit_driver_info/edit_driver_info.js",
 	"components/common/report/vue_report_component.js",
-	"components/export_data/export_data.js",
-	"app.js",
-	// "C:/xampp/htdocs/my projects/report-app-master/archive/bootstrap-5.0.0-beta2-dist/js/bootstrap.bundle.js"
+	"components/nav-bar/nav-bar.js",
+	"components/settings/settings.js",
+	"components/new_report/new_report.js",
+	"components/reports/reports.js",
+	"components/result/component.js",
+	
+	"C:/xampp/htdocs/my projects/report-app-master/archive/bootstrap-5.0.0-beta2-dist/js/bootstrap.bundle.js",
+	"backend/api.js",
+	"app.js"
 ]
+
+
 let css_files = [
-	//"C:/xampp/htdocs/my projects/report-app-master/archive/bootstrap-5.0.0-beta2-dist/css/bootstrap.rtl.css",
+	"C:/xampp/htdocs/my projects/report-app-master/archive/bootstrap-5.0.0-beta2-dist/css/bootstrap.rtl.css",
 	"./archive/common.css",
-	"components/buttons_container/buttons-panel.css",
-	"components/pages_container/pages_container.css",
-	"components/settings/settings.css",
-	"components/login/login.css",
-	"components/new_driver/new_driver.css",
-	"components/select_driver/select_driver.css",
-	"components/edit_driver_info/edit_driver_info.css",
 	"components/common/report/vue_report_component.css",
-	"components/driver_page/driver_page.css",
-	"C:/xampp/htdocs/my projects/report-app-master/components/container-like-github/container-like-github.css"
+	"components/nav-bar/nav-bar.css",
+	"components/settings/settings.css",
+	"components/new_report/new_report.css",
+	"components/reports/reports.css",
+	"components/result/component.css"
 	
 	
 ]
