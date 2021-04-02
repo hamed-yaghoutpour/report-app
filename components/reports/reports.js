@@ -11,7 +11,7 @@ template:
 		<h6 class="text-secondary">{{info}}</h6>
 	</div>
 	<div class="col-2 d-flex align-items-center">
-		<button class="btn btn-dark align-items-center justify-content-center d-flex"><img src="./archive/bootstrap_edited_icons/arrow-right-short-white.svg" style="height:20px;" v-on:click="go_to_report"></button>
+		<button class="btn btn-dark align-items-center justify-content-center d-flex"><img src="./archive/icons/arrow-right-short-white.svg" style="height:20px;" v-on:click="go_to_report"></button>
 	</div>
 </div>
 `,
@@ -21,6 +21,8 @@ methods:{
 	}
 }
 })
+
+
 Vue.component("reports",{
 	template:(`
 <div id="reports">

@@ -37,14 +37,14 @@ let js_files = [
 	"components/reports/reports.js",
 	"components/result/component.js",
 	
-	"C:/xampp/htdocs/my projects/report-app-master/archive/bootstrap-5.0.0-beta2-dist/js/bootstrap.bundle.js",
+	"./archive/bootstrap-5.0.0-beta2-dist/js/bootstrap.bundle.js",
 	"backend/api.js",
 	"app.js"
 ]
 
 
 let css_files = [
-	"C:/xampp/htdocs/my projects/report-app-master/archive/bootstrap-5.0.0-beta2-dist/css/bootstrap.rtl.css",
+	"./archive/bootstrap-5.0.0-beta2-dist/css/bootstrap.rtl.css",
 	"./archive/common.css",
 	"components/common/report/vue_report_component.css",
 	"components/nav-bar/nav-bar.css",

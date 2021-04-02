@@ -19,15 +19,9 @@ let routes = [
 		}
 	},
 	{
-		path:"/result/:report_code",
-		component:{
-			template:"<result></result>"
-		}
-	},
-	{
 		path:"/report/:report_code",
 		component:{
-			template:"<report-page></report-page>"
+			template:"<report></report>"
 		}
 	},
 	{

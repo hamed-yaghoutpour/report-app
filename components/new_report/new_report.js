@@ -60,7 +60,7 @@ Vue.component("new-report",{
 				let bool = api.new_report(driver_code,driver_name,report_text);
 				if(bool){
 					report_code = bool;
-					window.location.assign("#/result/"+report_code)
+					window.location.assign("#/report/"+report_code)
 				}else{
 					alert("there is an error, please try again");
 				}
