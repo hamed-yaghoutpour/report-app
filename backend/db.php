@@ -1,9 +1,15 @@
 <?php
 
+//$servername = "localhost";
+//$username = "aneserin_root";
+//$password = "hamed1382h";
+//$db_name = "aneserin_report_app";
+//$table_name = "reports";
+
 $servername = "localhost";
-$username = "aneserin_root";
-$password = "hamed1382h";
-$db_name = "aneserin_report_app";
+$username = "root";
+$password = "";
+$db_name = "reporto";
 $table_name = "reports";
 
 $db = new mysqli($servername,$username,$password);
@@ -20,3 +26,19 @@ $sql = "create table if not exists reports(
 	report_text varchar(1500)
 )";
 $db->query($sql);
+$sql = "create table if not exists main(
+	id int(5) primary key auto_increment,
+	key_name varchar(200),
+	key_value varchar(300)
+)";
+$db->query($sql);
+
+//set default password for first runs : 
+// (default password is 'password')
+$sql = "select * from main where key_name = 'password'";
+$matched_rows_count = mysqli_num_rows($db->query($sql));
+if($matched_rows_count == 0){
+	$sql = "insert into main (key_name,key_value) values ('password','password')";
+	$db->query($sql);
+}
+

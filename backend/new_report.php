@@ -2,9 +2,12 @@
 include("db.php");
 
 function new_report($db,$driver_code,$driver_name,$report_text){
+	global $db;
+	global $db_name;
+	global $table_name;
 	$return_value = [];
 	$sql = "
-		insert into $db->db_name (driver_code,driver_name,report_text) values ($driver_code,'$driver_name','$report_text')
+		insert into $table_name (driver_code,driver_name,report_text) values ($driver_code,'$driver_name','$report_text')
 	";
 	if($db->query($sql)){
 		$return_value["state"] = true;
@@ -18,22 +21,19 @@ function new_report($db,$driver_code,$driver_name,$report_text){
 		return json_encode($return_value);
 	}else{
 		$return_value["state"] = false;
-		$return_value["report_code"] = "error";
-		return $return_value;
+		$return_value["report_code"] = "$db->error()";
+		return json_encode($return_value);
 	};
 }
 
 // requests =>
 if(
 isset($_REQUEST["driver_code"])
-&&
-isset($_REQUEST["driver_name"])
-&&
-isset($_REQUEST["report_text"])
 ){
 	$driver_code = (int)$_REQUEST["driver_code"];
 	$driver_name = $_REQUEST["driver_name"];
 	$report_text = $_REQUEST["report_text"];
 	
 	echo new_report($db,$driver_code,$driver_name,$report_text);
+
 }

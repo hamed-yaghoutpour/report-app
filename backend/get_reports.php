@@ -2,6 +2,7 @@
 include("db.php");
 
 function get_reports($db){
+	global $table_name;
 	$return_value = [];
 	$sql = "select * from $table_name";
 	$results = $db->query($sql);
@@ -12,4 +13,4 @@ function get_reports($db){
 }
 
 // requests =>
-echo get_reports();
+echo get_reports($db);
