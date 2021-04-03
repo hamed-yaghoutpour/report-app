@@ -3,7 +3,7 @@ include("db.php");
 function reset_factory(){
     global $db;
     global $db_name;
-    $sql =  "drop database $db_name";
+    $sql =  "drop database if exists $db_name";
     if($db->query($sql)){
         return true;
     }else{

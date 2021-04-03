@@ -28,16 +28,13 @@ api.get_reports=function(){
 	$.ajax({
 		url:"get_reports.php",
 		async:false,
-		success:function(data){
-			if(JSON.parse(data)["state"] == true){
-				return_value = JSON.parse(data)
-			}
-			
+		success:function(data){	
+			return_value = JSON.parse(data)
 		}
 	})
 	return return_value;
 }
-api.get_report=function(report_id){
+api.get_report=function(report_code){
 // return report data on success
 // return false on faliure
 	let return_value = false;
@@ -45,13 +42,10 @@ api.get_report=function(report_id){
 		url:"get_report.php",
 		async:false,
 		data:{
-			report_id
+			report_code
 		},
-		success:function(data){
-			if(JSON.parse(data)["state"] == true ) {
-				return_value = JSON.parse(data)["report_data"]
-			}
-			
+		success:function(report_data){
+			return_value = JSON.parse(report_data)
 		}
 	})
 	return return_value;
@@ -61,10 +55,11 @@ api.reset_factory = function(){
 // return false on faliure
 	let return_value = false;
 	$.ajax({
-		url:"change_password.php",
+		url:"reset_factory.php",
+		async:false,
 		success:function(data){
-			let state = JSON.parse(data)["state"];
-			if(state == true) return_value = true;
+			let state = JSON.parse(data).state;
+			if(state == true){ return_value = true}
 		}
 	})
 	return return_value;
@@ -75,6 +70,7 @@ api.change_password = function(old_password,new_password){
 	let return_value = false;
 	$.ajax({
 		url:"change_password.php",
+		async:false,
 		data:{
 			old_password, //shorthand for old_password:old_password
 			new_password

@@ -11,4 +11,5 @@ $return_value["driver_code"] = $row["driver_code"];
 $return_value["report_text"] = $row["report_text"];
 $return_value["driver_name"] = $row["driver_name"];
 
+
 echo json_encode($return_value);
