@@ -35,14 +35,19 @@ Vue.component("reports",{
 		
 		<hr>
 		
-		<reports-option title="title" info="info" report_code="245"></reports-option>
-		<reports-option title="title" info="info" report_code="22"></reports-option>
+		<reports-option v-for="report in reports" v-bind:title="report.driver_name" info="info" v-bind:report_code="report.id"></reports-option>
 		
 		
 	</div>
 
 	
 </div>
-	`)
+	`),
+	computed:{
+		reports(){
+			return api.get_reports();
+		}
+		
+	}
 	
 })

@@ -55,20 +55,13 @@ Vue.component("report",{
 		go_back:function(){
 			window.location.assign("#/new_report");
 		},
-		open_report:function(){
-			window.location.assign("#/report/"+Number(this.$route.params.report_code))
-		},
 		report_data:function(){
 			let report_code = Number(this.$route.params.report_code)
+			parsed_report_data = api.get_report(report_code)
 			return{
-				driver_code : api.get_report(report_code)["driver_code"],
-				driver_name : api.get_report(report_code)["driver_name"],
-				report_text : api.get_report(report_code)["report_text"],
-				
-				//driver_code : "hamed",
-				//driver_name : "negin",
-				//report_text : "yaghoutpour "
-
+				driver_code : parsed_report_data["driver_code"],
+				driver_name : parsed_report_data["driver_name"],
+				report_text : parsed_report_data["report_text"]
 			}
 			
 		}

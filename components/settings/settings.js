@@ -35,12 +35,13 @@ Vue.component("settings",{
 		reset_factory:function(){
 			let confirm_result = confirm("danger! are you sure you want to delete all your data and start app again ?")
 			if(confirm_result == true){
-				if(api.reset_factory()){
+				
+				api.reset_factory(function(){
 					alert("done successfuly and app will restart soon")
 					window.location.assign("#/")
-				}else{
+				},function(){
 					alert("there was an error, try again")
-				}
+				})
 			}
 		},
 		change_language:function(){
@@ -50,11 +51,12 @@ Vue.component("settings",{
 			let old_password = prompt("what is your password right now?")
 			if(!old_password) return // for ux reasons
 			let new_password = prompt("enter your new password")
-			if(change_password(old_password,new_password) == true) {
+			api.change_password(old_password,new_password,function(){
 				alert("done succesfuly")
-			}else{
+			},function(){
 				alert("your old password was incorect or an error has happend, try again")
-			}
+			})
+			
 		}
 	}
 })

@@ -9,10 +9,10 @@ Vue.component("new-report",{
 		<hr>
 		<div class="row mb-1">
 			<div class="col-8">
-				<h4 class="text-info" id="driver_code">enter driver code: </h4>
+				<h4 class="text-info">enter driver code: </h4>
 			</div>
 			<div class="col">
-				<input type="number" class="form-control text-light bg-dark border-0" min="0">
+				<input type="number" class="form-control text-light bg-dark border-0" min="0" id="driver_code">
 			</div>
 		</div>
 		<hr>
@@ -21,7 +21,7 @@ Vue.component("new-report",{
 				<h4 class="text-info">driver name: </h4>
 			</div>
 			<div class="col">
-				<input class="form-control text-light bg-dark border-0" type="text">
+				<input class="form-control text-light bg-dark border-0" type="text" id="driver_name">
 			</div>
 			
 		</div>
@@ -54,9 +54,9 @@ Vue.component("new-report",{
 		add_new_report:function(){
 			let confirm_result = confirm("are you sure?");
 			if(confirm_result== true){
-				driver_code = Number($("#driver_code").val());
-				driver_name = $("#driver_name").val();
-				report_text = $("#report_text").val();
+				let driver_code = Number($("#driver_code").val());
+				let driver_name = $("#driver_name").val();
+				let report_text = $("#report_text").val();
 				let bool = api.new_report(driver_code,driver_name,report_text);
 				if(bool){
 					report_code = bool;
@@ -69,7 +69,9 @@ Vue.component("new-report",{
 		discard:function(){
 			let confirm_result = confirm("are you sure?");
 			if(confirm_result == true){
-				console.log("discard func is working")
+				$("#driver_code").val('');
+				$("#driver_name").val('');
+				$("#report_text").val('');
 			}
 		}
 	}
