@@ -30,7 +30,7 @@ let js_files = [
 	"./archive/jquery-3.5.1.js",
 	"./archive/vue.js",
 	"./archive/vue-router.js",
-	"components/common/report/vue_report_component.js",
+
 	"components/nav-bar/nav-bar.js",
 	"components/settings/settings.js",
 	"components/new_report/new_report.js",
@@ -46,7 +46,7 @@ let js_files = [
 let css_files = [
 	"./archive/bootstrap-5.0.0-beta2-dist/css/bootstrap.rtl.css",
 	"./archive/common.css",
-	"components/common/report/vue_report_component.css",
+
 	"components/nav-bar/nav-bar.css",
 	"components/settings/settings.css",
 	"components/new_report/new_report.css",

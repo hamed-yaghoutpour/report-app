@@ -23,13 +23,14 @@ $sql = "create table if not exists reports(
 	id int(5) primary key auto_increment,
 	driver_code int(5),
 	driver_name varchar(200),
-	report_text varchar(1500)
+	report_text varchar(1500),
+	is_open varchar(50) default 'true'
 )";
 $db->query($sql);
 $sql = "create table if not exists main(
 	id int(5) primary key auto_increment,
 	key_name varchar(200),
-	key_value varchar(300)
+	key_value varchar(300) 
 )";
 $db->query($sql);
 

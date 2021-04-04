@@ -96,3 +96,20 @@ api.change_password = function(old_password,new_password,success,failure){
 		}
 	})
 }
+api.toggle_report_status= function(report_code){
+	let return_value = false;
+	$.ajax({
+		url:"./backend/toggle_report_status.php",
+		async:false,
+		data:{
+			report_code
+		},
+		success:function(data){
+			console.log(data)
+			if(!validate_json(data)) return ; //for prevent json parse error
+			let state = JSON.parse(data)["state"];
+			if(state == true) return_value = true;
+		}
+	})
+	return return_value;
+}
