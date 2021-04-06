@@ -9,8 +9,13 @@ function get_reports($db){
 	while($row = mysqli_fetch_assoc($results)){
 		$return_value[] = $row;
 	};
+	//convert is_open column from string to boolean =>
+	foreach ($return_value as $key => $value) {
+		$return_value[$key]["is_open"] = $return_value[$key]["is_open"] == "true" ? true:false;
+	}
+	//return json_encode($return_value);
 	return json_encode($return_value);
-}
+};
 
 // requests =>
 echo get_reports($db);

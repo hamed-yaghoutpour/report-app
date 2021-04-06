@@ -1,3 +1,33 @@
+const store = new Vuex.Store({
+	state:{
+		reports:[]
+	},
+	getters:{
+		open_reports(state){
+			return state.reports.filter((value)=>{
+				return value.is_open == true
+			 })
+		},
+		closed_reports(state){
+			return state.reports.filter((value)=>{
+				return value.is_open == false
+			 })
+		}
+
+	},
+	mutations:{
+		update_reports(state,data){
+			state.reports = data;
+		}
+	},
+	actions:{
+		async update_reports(context){
+			let data = await api.get_reports();
+			context.commit('update_reports',data)
+		}
+	}
+})
+
 let routes = [
 	
 	{
@@ -36,5 +66,9 @@ let router = new VueRouter({
 })
 const app = new Vue({
 	el:"#app",
-	router:router
+	router:router,
+	store,
+	created(){
+		this.$store.dispatch("update_reports")
+	}
 })

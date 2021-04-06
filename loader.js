@@ -27,10 +27,11 @@ function load_js(paths){
 
 
 let js_files = [
+	"backend/api.js",
 	"./archive/jquery-3.5.1.js",
 	"./archive/vue.js",
 	"./archive/vue-router.js",
-
+	"./archive/vuex.js",
 	"components/nav-bar/nav-bar.js",
 	"components/settings/settings.js",
 	"components/new_report/new_report.js",
@@ -38,7 +39,7 @@ let js_files = [
 	"components/result/component.js",
 	
 	"./archive/bootstrap-5.0.0-beta2-dist/js/bootstrap.bundle.js",
-	"backend/api.js",
+	
 	"app.js"
 ]
 

@@ -21,7 +21,7 @@ Vue.component("report",{
 			<h5 class="text-info">driver name:</h5>
 		</div>
 		<div class="col">
-			<h5 class="text-warning">{{report_data()["driver_name"]}}</h5>
+			<h5 class="text-warning">{{driver_name}}</h5>
 		</div>
 	</div>
 	<hr>
@@ -30,7 +30,7 @@ Vue.component("report",{
 			<h5 class="text-info">driver code:</h5>
 		</div>
 		<div class="col">
-			<h5 class="text-warning">{{report_data()["driver_code"]}}</h5>
+			<h5 class="text-warning">{{driver_code}}</h5>
 		</div>
 	</div>
 	<hr>
@@ -39,7 +39,7 @@ Vue.component("report",{
 			<h5 class="text-info">report text:</h5>
 		</div>
 		<div class="col">
-			<h5 class="text-warning">{{report_data()["report_text"]}}</h5>
+			<h5 class="text-warning">{{report_text}}</h5>
 		</div>
 	</div>
 	<hr>
@@ -65,11 +65,8 @@ Vue.component("report",{
 	</div>	
 </div>
 	`,
-	data:function(){
-		return{
-			is_open:api.get_report(this.report_code())["is_open"]
-		}
-	},
+	
+	
 	methods:{
 		go_back:function(){
 			window.location.assign("#/new_report");
@@ -77,18 +74,30 @@ Vue.component("report",{
 		report_code:function(){
 			return Number(this.$route.params.report_code)
 		},
-		report_data(){
-			return {
-				driver_code:api.get_report(this.report_code())["driver_code"],
-				driver_name:api.get_report(this.report_code())["driver_name"],
-				report_text:api.get_report(this.report_code())["report_text"],
-				//is_open:api.get_report(this.report_code())["is_open"]
-			}
-		},
 		toggle_report_status(){
 			//success => reload to take effect
-			if(api.toggle_report_status(this.report_code())) this.is_open = !this.is_open
+			if(api.toggle_report_status(this.report_code())){
+				this.$store.dispatch("update_reports") ;
+				//it will also update this page because we have used computed properties
+			} 
 		}
 
+	},
+	computed:{
+		driver_name(){
+			return this.$store.state.reports[this.report_code()-1].driver_name
+		},
+		driver_code(){
+			return this.$store.state.reports[this.report_code()-1].driver_code
+		},
+		is_open(){
+			return this.$store.state.reports[this.report_code()-1].is_open
+		},
+		report_text(){
+			return this.$store.state.reports[this.report_code()-1].report_text
+		}
 	}
+		
+		
+	
 })

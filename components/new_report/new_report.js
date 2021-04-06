@@ -40,7 +40,7 @@ Vue.component("new-report",{
 		</div>
 		
 		<div class="row mt-3 mb-3">
-			<div class="col-8">
+			<div class="col-8 d-grid">
 				<button class="btn btn-primary" v-on:click="add_new_report">save report</button>
 			</div>
 			<div class="col-4 d-flex justify-content-end">
@@ -60,7 +60,10 @@ Vue.component("new-report",{
 				let bool = api.new_report(driver_code,driver_name,report_text);
 				if(bool){
 					report_code = bool;
-					window.location.assign("#/report/"+report_code)
+					this.$store.dispatch("update_reports").then(()=>{
+						window.location.assign("#/report/"+report_code)
+					})
+					
 				}else{
 					alert("there is an error, please try again");
 				}

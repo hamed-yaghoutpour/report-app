@@ -12,7 +12,7 @@ function validate_json(data){
 
 let api = {}
 
-api.new_report=function(driver_code,driver_name,report_text){
+api.new_report= function(driver_code,driver_name,report_text){
 	// seccess => return added report id 
 	// failure => return false 
 	let return_value = false;
@@ -36,38 +36,21 @@ api.new_report=function(driver_code,driver_name,report_text){
 	return return_value;
 }
 api.get_reports=function(){
-	//success => return reports as array
-	// failure => return false
-	let return_value = false;
-	$.ajax({
-		url:"./backend/get_reports.php",
-		async:false,
-		success:function(data){	
-			console.log(data)
-			if(!validate_json(data)) return ; //for prevent json parse error
-			return_value = JSON.parse(data)
-		}
+	return new Promise(res=>{
+		//success => return reports as array
+		// failure => return false
+		$.ajax({
+			url:"./backend/get_reports.php",
+			success:function(data){	
+				console.log(data)
+				if(!validate_json(data)) return ; //for prevent json parse error
+				res(JSON.parse(data))
+			}
+		})
 	})
-	return return_value;
+	
 }
-api.get_report=function(report_code){
-// return report data on success
-// return false on faliure
-	let return_value = false;
-	$.ajax({
-		url:"./backend/get_report.php",
-		async:false,
-		data:{
-			report_code
-		},
-		success:function(report_data){
-			console.log(report_data)
-			if(!validate_json(report_data)) return ; //for prevent json parse error
-			return_value = JSON.parse(report_data)
-		}
-	})
-	return return_value;
-}
+
 api.reset_factory = function(success,failure){
 
 	$.ajax({
