@@ -96,3 +96,29 @@ api.toggle_report_status= function(report_code){
 	})
 	return return_value;
 }
+api.toggle_language = function(){
+	let return_value = false;
+	$.ajax({
+		url:"./backend/toggle_language.php",
+		async:false,
+		success:function(data){
+			if(data == "ok"){
+				return_value = true;
+			}
+		}
+	})
+	return return_value;
+}
+api.get_language = function(){
+	let retur_value = false;
+	$.ajax({
+		url:"./backend/get_language.php",
+		async:false,
+		success:function(data){
+		
+			return_value = data;
+		
+		}
+	})
+	return return_value;
+}

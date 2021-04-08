@@ -36,6 +36,7 @@ $db->query($sql);
 
 //set default password for first runs : 
 // (default password is 'password')
+
 $sql = "select * from main where key_name = 'password'";
 $matched_rows_count = mysqli_num_rows($db->query($sql));
 if($matched_rows_count == 0){
@@ -43,3 +44,10 @@ if($matched_rows_count == 0){
 	$db->query($sql);
 }
 
+// (default language is 'english')
+$sql = "select * from main where key_name = 'language'";
+$matched_rows_count = mysqli_num_rows($db->query($sql));
+if($matched_rows_count == 0){
+	$sql = "insert into main (key_name,key_value) values ('language','english')";
+	$db->query($sql);
+}

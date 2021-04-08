@@ -4,12 +4,12 @@ Vue.component("new-report",{
 	<div class="container-fluid">
 	
 		<div class="row mt-2">
-			<h1 class="text-primary">new report</h1>
+			<h1 class="text-primary">{{strings.new_report}}</h1>
 		</div>
 		<hr>
 		<div class="row mb-1">
 			<div class="col-8">
-				<h4 class="text-info">enter driver code: </h4>
+				<h4 class="text-info">{{strings.enter_driver_code}}: </h4>
 			</div>
 			<div class="col">
 				<input type="number" class="form-control text-light bg-dark border-0" min="0" id="driver_code">
@@ -18,7 +18,7 @@ Vue.component("new-report",{
 		<hr>
 		<div class="row mb-2">
 			<div class="col-5">
-				<h4 class="text-info">driver name: </h4>
+				<h4 class="text-info">{{strings.driver_name}}: </h4>
 			</div>
 			<div class="col">
 				<input class="form-control text-light bg-dark border-0" type="text" id="driver_name">
@@ -28,7 +28,7 @@ Vue.component("new-report",{
 		<hr>
 		<div class="row mb-3">
 			
-			<h4 class="text-info">enter report text :</h4>
+			<h4 class="text-info">{{strings.enter_report_text}}:</h4>
 			
 		</div>
 		
@@ -41,18 +41,32 @@ Vue.component("new-report",{
 		
 		<div class="row mt-3 mb-3">
 			<div class="col-8 d-grid">
-				<button class="btn btn-primary" v-on:click="add_new_report">save report</button>
+				<button class="btn btn-primary" v-on:click="add_new_report">{{strings.save_report}}</button>
 			</div>
 			<div class="col-4 d-flex justify-content-end">
-				<button class="btn btn-outline-danger" v-on:click="discard">discard</button>
+				<button class="btn btn-outline-danger" v-on:click="discard">{{strings.discard}}</button>
 			</div>
 		</div>
 	</div>
 </div>
 	`),
+	computed:{
+		strings:function(){
+			return{
+				new_report:this.$store.state.strings.new_report,
+				enter_driver_code:this.$store.state.strings.enter_driver_code,
+				driver_name:this.$store.state.strings.driver_name,
+				enter_report_text:this.$store.state.strings.enter_report_text,
+				save_report:this.$store.state.strings.save_report,
+				discard:this.$store.state.strings.discard,
+				are_you_sure:this.$store.state.strings.are_you_sure,
+				try_again:this.$store.state.strings.try_again
+			}
+		}
+	},
 	methods:{
 		add_new_report:function(){
-			let confirm_result = confirm("are you sure?");
+			let confirm_result = confirm(this.strings.are_you_sure);
 			if(confirm_result== true){
 				let driver_code = Number($("#driver_code").val());
 				let driver_name = $("#driver_name").val();
@@ -65,12 +79,12 @@ Vue.component("new-report",{
 					})
 					
 				}else{
-					alert("there is an error, please try again");
+					alert(this.strings.try_again);
 				}
 			}
 		},
 		discard:function(){
-			let confirm_result = confirm("are you sure?");
+			let confirm_result = confirm(this.strings.are_you_sure);
 			if(confirm_result == true){
 				$("#driver_code").val('');
 				$("#driver_name").val('');

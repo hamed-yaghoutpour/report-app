@@ -11,14 +11,17 @@ template:
 		<h6 class="text-secondary">{{info}}</h6>
 	</div>
 	<div class="col-2 d-flex align-items-center" v-on:click="go_to_report">
-		<button class="btn btn-dark align-items-center justify-content-center d-flex"><img src="./archive/bootstrap-icons/arrow-right-short-white.svg" style="height:20px;"></button>
+		<button class="btn btn-dark align-items-center justify-content-center d-flex go_to_report">
+			<img src="./archive/bootstrap-icons/arrow-right-short-white.svg" style="height:20px;">
+		</button>
 	</div>
 </div>
 `,
 methods:{
 	go_to_report:function(){
 		window.location.assign("#/report/"+Number(this.report_code))
-	}
+	},
+	
 }
 })
 
@@ -29,7 +32,7 @@ Vue.component("reports",{
 	<div class="container-fluid">
 		<div class="row mt-2">
 			<div class="col">
-				<h1 class="text-primary">all reports</h1>
+				<h1 class="text-primary">{{strings.all_reports}}</h1>
 			</div>
 		</div>
 		
@@ -39,7 +42,7 @@ Vue.component("reports",{
 		
 		<div class="row mt-5">
 			<div class="col">
-				<h1 class="text-primary">open reports</h1>
+				<h1 class="text-primary">{{strings.open_reports}}</h1>
 			</div>
 		</div>
 		
@@ -49,7 +52,7 @@ Vue.component("reports",{
 		
 		<div class="row mt-5">
 			<div class="col">
-				<h1 class="text-primary">closed reports</h1>
+				<h1 class="text-primary">{{strings.closed_reports}}</h1>
 			</div>
 		</div>
 		
@@ -72,8 +75,14 @@ Vue.component("reports",{
 		},
 		closed_reports(){
 			return this.$store.getters.closed_reports
+		},
+		strings(){
+			return{
+				all_reports:this.$store.state.strings.all_reports,
+				open_reports:this.$store.state.strings.open_reports,
+				closed_reports:this.$store.state.strings.closed_reports,
+			}
 		}
-		
 	}
 	
 })

@@ -3,27 +3,27 @@ Vue.component("settings",{
 <div id="settings">
 	<div class="container-fluid">
 		<div class="row mt-2">
-			<h1 class="text-primary">settings</h1>
+			<h1 class="text-primary">{{strings.settings}}</h1>
 		</div>
 	</div>
 	<hr>
 	<div class="row mb-2 mx-1">
 		<div class="col-6">
-			<button class="btn btn-info" v-on:click="change_password()">change password</button>
+			<button class="btn btn-info" v-on:click="change_password()">{{strings.change_password}}</button>
 		</div>
 		
 	</div>
 	
 	<div class="row mb-2 mx-1">
 		<div class="col-6">
-			<button class="btn btn-info" v-on:click="change_language()">change language</button>
+			<button class="btn btn-info" v-on:click="change_language()">{{strings.change_language}}</button>
 		</div>
 		
 	</div>
 	
 	<div class="row mb-2 mx-1">
 		<div class="col-6">
-			<button class="btn btn-info" v-on:click="reset_factory()">reset factory</button>
+			<button class="btn btn-info" v-on:click="reset_factory()">{{strings.reset_factory}}</button>
 		</div>
 		
 	</div>
@@ -31,30 +31,53 @@ Vue.component("settings",{
 	
 </div>
 	`),
+	computed:{
+		strings(){
+			return{
+				settings:this.$store.state.strings.settings,
+				change_password:this.$store.state.strings.change_password,
+				change_language:this.$store.state.strings.change_language,
+				reset_factory:this.$store.state.strings.reset_factory,
+				reset_factory_confirm_message:this.$store.state.strings.reset_factory_confirm_message,
+				reset_factory_success:this.$store.state.strings.reset_factory_success,
+				try_again:this.$store.state.strings.try_again,
+				are_you_sure:this.$store.state.strings.are_you_sure,
+				what_is_your_old_password:this.$store.state.strings.what_is_your_old_password,
+				what_is_your_new_password:this.$store.state.strings.what_is_your_new_password,
+				success:this.$store.state.strings.success,
+			}
+		}
+	},
 	methods:{
 		reset_factory:function(){
-			let confirm_result = confirm("danger! are you sure you want to delete all your data and start app again ?")
+			
+			let confirm_result = confirm(this.strings.reset_factory_confirm_message)
 			if(confirm_result == true){
 				
 				api.reset_factory(function(){
-					alert("done successfuly and app will restart soon")
+					alert(this.strings.reset_factory_success)
 					window.location.assign("#/")
 				},function(){
-					alert("there was an error, try again")
+					alert(this.strings.try_again)
 				})
 			}
 		},
 		change_language:function(){
-			
+			let confirm_result = confirm(this.strings.are_you_sure);
+			if(confirm_result === true){
+				if(api.toggle_language()){
+					window.location.reload()
+				}
+			}
 		},
 		change_password:function(){
-			let old_password = prompt("what is your password right now?")
+			let old_password = prompt(this.strings.what_is_your_old_password)
 			if(!old_password) return // for ux reasons
-			let new_password = prompt("enter your new password")
+			let new_password = prompt(this.strings.what_is_your_new_password)
 			api.change_password(old_password,new_password,function(){
-				alert("done succesfuly")
+				alert(this.strings.success)
 			},function(){
-				alert("your old password was incorect or an error has happend, try again")
+				alert(this.strings.try_again)
 			})
 			
 		}

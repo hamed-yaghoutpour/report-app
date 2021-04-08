@@ -1,6 +1,8 @@
+
 const store = new Vuex.Store({
 	state:{
-		reports:[]
+		reports:[],
+		strings:strings.english //short for strings:strings      **strings are in a file with same name in current directory **should require before this file
 	},
 	getters:{
 		open_reports(state){
@@ -18,6 +20,12 @@ const store = new Vuex.Store({
 	mutations:{
 		update_reports(state,data){
 			state.reports = data;
+		},
+		change_language(state,language){
+			state.strings = strings[language]
+			
+			language == "persian" ? $("*").css("direction","rtl") : $("*").css("direction","ltr");
+			
 		}
 	},
 	actions:{
@@ -70,5 +78,10 @@ const app = new Vue({
 	store,
 	created(){
 		this.$store.dispatch("update_reports")
+		
+		load_css_files_fn.then(()=>{
+			this.$store.commit("change_language",api.get_language());
+			// this.$store.commit("change_language","persian");
+		})
 	}
 })
