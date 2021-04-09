@@ -32,34 +32,25 @@ Vue.component("settings",{
 </div>
 	`),
 	computed:{
-		strings(){
-			return{
-				settings:this.$store.state.strings.settings,
-				change_password:this.$store.state.strings.change_password,
-				change_language:this.$store.state.strings.change_language,
-				reset_factory:this.$store.state.strings.reset_factory,
-				reset_factory_confirm_message:this.$store.state.strings.reset_factory_confirm_message,
-				reset_factory_success:this.$store.state.strings.reset_factory_success,
-				try_again:this.$store.state.strings.try_again,
-				are_you_sure:this.$store.state.strings.are_you_sure,
-				what_is_your_old_password:this.$store.state.strings.what_is_your_old_password,
-				what_is_your_new_password:this.$store.state.strings.what_is_your_new_password,
-				success:this.$store.state.strings.success,
-			}
+		strings:function(){
+			return this.$store.state.strings
 		}
 	},
 	methods:{
 		reset_factory:function(){
-			
 			let confirm_result = confirm(this.strings.reset_factory_confirm_message)
 			if(confirm_result == true){
 				
-				api.reset_factory(function(){
-					alert(this.strings.reset_factory_success)
-					window.location.assign("#/")
-				},function(){
-					alert(this.strings.try_again)
+				api.reset_factory().then(state =>{
+					if(state){
+						alert(this.strings.reset_factory_success)
+						window.location.assign("#/")
+					}else{
+						alert(this.strings.try_again)
+					}
 				})
+				
+					
 			}
 		},
 		change_language:function(){

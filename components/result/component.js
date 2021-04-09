@@ -97,18 +97,7 @@ Vue.component("report",{
 			return this.$store.state.reports[this.report_code()-1].report_text
 		},
 		strings(){
-			return{
-				your_report_saved:this.$store.state.strings.your_report_saved,
-				report_id:this.$store.state.strings.report_id,
-				driver_name:this.$store.state.strings.driver_name,
-				driver_code:this.$store.state.strings.driver_code,
-				report_text:this.$store.state.strings.report_text,
-				status:this.$store.state.strings.status,
-				checked:this.$store.state.strings.checked,
-				not_checked:this.$store.state.strings.not_checked,
-				toggle:this.$store.state.strings.toggle,
-				go_back:this.$store.state.strings.go_back,
-			}
+			return this.$store.state.strings
 		}
 	}
 		

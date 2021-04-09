@@ -52,16 +52,7 @@ Vue.component("new-report",{
 	`),
 	computed:{
 		strings:function(){
-			return{
-				new_report:this.$store.state.strings.new_report,
-				enter_driver_code:this.$store.state.strings.enter_driver_code,
-				driver_name:this.$store.state.strings.driver_name,
-				enter_report_text:this.$store.state.strings.enter_report_text,
-				save_report:this.$store.state.strings.save_report,
-				discard:this.$store.state.strings.discard,
-				are_you_sure:this.$store.state.strings.are_you_sure,
-				try_again:this.$store.state.strings.try_again
-			}
+			return this.$store.state.strings
 		}
 	},
 	methods:{

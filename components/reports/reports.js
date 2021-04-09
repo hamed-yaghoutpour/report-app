@@ -77,11 +77,7 @@ Vue.component("reports",{
 			return this.$store.getters.closed_reports
 		},
 		strings(){
-			return{
-				all_reports:this.$store.state.strings.all_reports,
-				open_reports:this.$store.state.strings.open_reports,
-				closed_reports:this.$store.state.strings.closed_reports,
-			}
+			return this.$store.state.strings
 		}
 	}
 	

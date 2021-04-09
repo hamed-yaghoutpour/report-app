@@ -51,17 +51,19 @@ api.get_reports=function(){
 	
 }
 
-api.reset_factory = function(success,failure){
-
+api.reset_factory = function(){
+return new Promise((res)=>{
 	$.ajax({
 		url:"./backend/reset_factory.php",
 		success:function(data){
 			console.log(data)
 			if(!validate_json(data)) return ; //for prevent json parse error
 			let state = JSON.parse(data).state;
-			if(state == true){success()}
+			if(state == true){res(true)}
 		}
 	})
+})
+	
 }
 api.change_password = function(old_password,new_password,success,failure){
 	

@@ -3,12 +3,12 @@ Vue.component("nav-bar",{
 <div id="nav-bar" class="bg-info">
 
 	<div class="option" v-on:click="go_to_new_report">
-		<img src="./archive/bootstrap-icons/gear-white.svg">
+		<img src="./archive/bootstrap-icons/clipboard-plus-white.svg">
 		<b class="title">{{strings.new_report}}</b>
 	</div>
 	
 	<div class="option" v-on:click="go_to_reports">
-		<img src="./archive/bootstrap-icons/gear-white.svg">
+		<img src="./archive/bootstrap-icons/clipboard-check-white.svg">
 		<b class="title">{{strings.reports}}</b>
 	</div>
 	
@@ -21,14 +21,7 @@ Vue.component("nav-bar",{
 	`),
 	computed:{
 		strings:function(){
-			return{
-				new_report:this.$store.state.strings.new_report,
-				reports:this.$store.state.strings.reports,
-				settings:this.$store.state.strings.settings,
-				
-				
-				
-			}
+			return this.$store.state.strings
 		}
 	},
 	methods:{

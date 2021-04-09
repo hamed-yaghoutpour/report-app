@@ -1,7 +1,6 @@
 get report => add state checking
 get reports => add state checking
 
-get language duplicate implentation in 2 files
-make sure about strings and make sure about this.strings.xyz in ajax calls (may this.strings != computed.strings)
+get_language duplicate implentation in 2 files
 change arrow icon in reports page when language changes 
 add sort button in reports page instead of showing all sort results
