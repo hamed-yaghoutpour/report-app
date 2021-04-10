@@ -26,6 +26,17 @@ const store = new Vuex.Store({
 			
 			language == "persian" ? $("*").css("direction","rtl") : $("*").css("direction","ltr");
 			
+		},
+		pre_load_report(state,report_number){
+			if(state.reports[report_number-1] != undefined){
+				return
+			}
+			state.reports[report_number -1] = {
+				driver_name:"loading",
+				driver_code:"loading",
+				report_text:"loading",
+				is_open:"loading"
+			}
 		}
 	},
 	actions:{

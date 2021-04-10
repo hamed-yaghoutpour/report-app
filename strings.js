@@ -36,7 +36,8 @@ const tmp = {
     reset_factory_success:["done successfuly and app will restart soon","با موفقیت انجام شد و به زودی برنامه ری استارت خواهد شد."],
     what_is_your_old_password:["what is your current password ?","رمز عبور فعلی شما چیست؟"],
     what_is_your_new_password:["what is your new password ?","رمز عبور جدید شما چیست؟"],
-    success:["donw successfuly","با موفقیت انجام شد"]
+    success:["donw successfuly","با موفقیت انجام شد"],
+    loading:["loading ...","در حال بازگزاری ..."]
 
 
 }

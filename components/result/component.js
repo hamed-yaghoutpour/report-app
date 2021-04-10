@@ -59,7 +59,7 @@ Vue.component("report",{
 	
 	<div class="row ml-1 mb-3 mt-2">
 		<div class="col-4  ml-1">
-			<button class="btn btn-info" v-on:click="go_back">{{strings.go_back}}</button>
+			<button class="btn btn-info"><a href="#/reports">{{strings.go_back}}</a></button>
 		
 		</div>
 	</div>	
@@ -68,37 +68,40 @@ Vue.component("report",{
 	
 	
 	methods:{
-		go_back:function(){
-			window.location.assign("#/new_report");
-		},
 		report_code:function(){
 			return Number(this.$route.params.report_code)
 		},
 		toggle_report_status(){
 			//success => reload to take effect
 			if(api.toggle_report_status(this.report_code())){
-				this.$store.dispatch("update_reports") ;
-				//it will also update this page because we have used computed properties
+				this.$store.dispatch("update_reports").then(()=>{{
+					this.is_open = this.$store.state.reports[this.report_code()-1].is_open
+				}})
+				
 			} 
 		}
 
 	},
 	computed:{
-		driver_name(){
-			return this.$store.state.reports[this.report_code()-1].driver_name
-		},
-		driver_code(){
-			return this.$store.state.reports[this.report_code()-1].driver_code
-		},
-		is_open(){
-			return this.$store.state.reports[this.report_code()-1].is_open
-		},
-		report_text(){
-			return this.$store.state.reports[this.report_code()-1].report_text
-		},
 		strings(){
 			return this.$store.state.strings
 		}
+	},
+	data(){
+		return {
+			driver_name:"loading ...",
+			driver_code:"loading ...",
+			is_open:"loading ...",
+			report_text:"loading ...",
+		}
+	},
+	created(){
+		this.$store.dispatch("update_reports").then(()=>{
+			this.driver_name = this.$store.state.reports[this.report_code()-1].driver_name
+			this.driver_code = this.$store.state.reports[this.report_code()-1].driver_code
+			this.is_open = this.$store.state.reports[this.report_code()-1].is_open
+			this.report_text = this.$store.state.reports[this.report_code()-1].report_text
+		})
 	}
 		
 		
