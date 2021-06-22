@@ -4,48 +4,46 @@
 <link rel="shortcut icon" href="../common/logo-final.jpg" type="image/x-icon">
 <script src='../common/components/report-option/index.js'></script>
 <link rel="stylesheet" href="../common/common.css">
+<script src="../api/localStorageApi.js"></script>
+<script src="./codes.js"></script>
 <div class="appFrame">
 	<div class="container-top">
-		<div id="reports">
+		
 			<div class="container-fluid">
 				<div class="row mt-2">
 					<div class="col">
-						<h1 class="text-primary">{{strings.all_reports}}</h1>
+						<h1 class="text-primary">all reports</h1>
 					</div>
 				</div>
 				
 				<hr>
+				<div id="reports">
 				
-				<reports-option v-for="report in reports" v-bind:title="report.driver_name" v-bind:info="report.report_text" v-bind:report_code="report.id"></reports-option>
+				</div>
+					
+				<div class="row mt-5">
+					<div class="col">
+						<h1 class="text-primary">open reports</h1>
+					</div>
+				</div>
+				
+				<hr>
+				<div id="open_reports">
+
+				</div>
 				
 				<div class="row mt-5">
 					<div class="col">
-						<h1 class="text-primary">{{strings.open_reports}}</h1>
+						<h1 class="text-primary">closed reports</h1>
 					</div>
-				</div>
-				
+				</div>				
 				<hr>
-				
-				<script>
-					//render usering renderReportOption
-				</script>
-				
-				<div class="row mt-5">
-					<div class="col">
-						<h1 class="text-primary">{{strings.closed_reports}}</h1>
-					</div>
+				<div id="closed_reports">
+
 				</div>
-				
-				<hr>
-				
-				<reports-option v-for="report in closed_reports" v-bind:title="report.driver_name" v-bind:info="report.report_text" v-bind:report_code="report.id"></reports-option>
-				
 				
 			</div>
 		
-			
-		</div>
-			
 	</div>
 	<script>
 		renderNavBar()
