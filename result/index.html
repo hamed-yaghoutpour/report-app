@@ -1,0 +1,76 @@
+<script src="../common/components/nav-bar/nav-bar.js"></script>
+<link rel="stylesheet" href="../common/components/nav-bar/nav-bar.css">
+<link rel="stylesheet" href="../common/lib/bootstrap.min.css">
+<link rel="shortcut icon" href="../common/logo-final.jpg" type="image/x-icon">
+
+<link rel="stylesheet" href="../common/common.css">
+<div class="appFrame">
+	<div class="container-top">
+		<div id="result">
+			<div class="row">
+				<h1 class="text-primary mt-2">your report saved !</h1>
+				
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-6">
+					<h5 class="text-info">report id:</h5>
+				</div>
+				<div class="col">
+					<h5 class="text-warning" id="report_code"></h5>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-6">
+					<h5 class="text-info">driver name:</h5>
+				</div>
+				<div class="col">
+					<h5 class="text-warning" id='driver_name'></h5>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-6">
+					<h5 class="text-info" >driver code:</h5>
+				</div>
+				<div class="col">
+					<h5 class="text-warning" id="driver_code"></h5>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-6">
+					<h5 class="text-info">report text:</h5>
+				</div>
+				<div class="col">
+					<h5 class="text-warning" id="report_text"></h5>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-6">
+				<h5 class="text-info">status:</h5>
+				</div>
+				<div class="col">
+				
+				<h5 class="text-secondary" id="not_checked">not checked</h5>
+				<h5 class="text-success" id="checked">checked</h5>
+				</div>
+				<div class="col">
+				<button class="btn btn-dark">toggle</button>
+				</div>
+			</div>
+			
+			<div class="row ml-1 mb-3 mt-2">
+				<div class="col-4  ml-1">
+					<button class="btn btn-info"><a href="../reports">go back</a></button>
+				
+				</div>
+			</div>	
+		</div>
+	</div>
+	<script>
+		renderNavBar()
+	</script>
+</div>
