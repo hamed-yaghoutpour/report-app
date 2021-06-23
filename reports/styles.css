@@ -1,0 +1,13 @@
+.r-title{
+
+
+    display: inline-block;
+    padding: 5px 4px 5px 4px;
+    border-radius: 7px;
+}
+#reports,#open_reports,#closed_reports{
+    position: relative;
+    width: 100%;
+    min-height: 80px;
+
+}
