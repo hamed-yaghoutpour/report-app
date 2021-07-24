@@ -1,19 +1,7 @@
-function toggle_report_status(report_code){
-    indexOfThatReport = null
-    for(let i =0;i<api.get_reports().length;i++){
-        if(api.get_reports()[i].id == report_code){
-            indexOfThatReport = i
-            break;
-        }
-    }
-    reports = api.get_reports()
-    reports[indexOfThatReport].is_open = !reports[indexOfThatReport].is_open
-    localStorage.setItem('reports',JSON.stringify(reports));
-}
+var myApi = new api
+
 window.onload = function(){
-    report_to_show = JSON.parse(localStorage.getItem('reports')).filter(i=>{
-        return i.id == Number(localStorage.getItem('report_code'))
-    })[0]
+    report_to_show = myApi.parsed_database().reports[Number(localStorage.getItem('report_code')) -1 ]
     els = {
         report_code:document.getElementById('report_code'),
         driver_name:document.getElementById('driver_name'),
@@ -33,10 +21,9 @@ window.onload = function(){
         els.status_text.innerHTML = "checked"
     }
     document.getElementById("toggle_button").onclick = function(){
-        toggle_report_status(Number(localStorage.getItem('report_code')))
-        report_to_show = JSON.parse(localStorage.getItem('reports')).filter(i=>{
-            return i.id == Number(localStorage.getItem('report_code'))
-        })[0]
+        myApi.toggle_report_status(Number(localStorage.getItem('report_code')))
+        report_to_show = report_to_show = myApi.parsed_database().reports[Number(localStorage.getItem('report_code')) -1]
+        
         els = {
             report_code:document.getElementById('report_code'),
             driver_name:document.getElementById('driver_name'),

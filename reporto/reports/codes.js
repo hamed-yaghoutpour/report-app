@@ -1,5 +1,6 @@
+var myApi = new api 
 window.onload = function(){
-    api.get_reports().forEach(i =>{
+    myApi.parsed_database().reports.forEach(i =>{
         renderReportOption({
             report_code:i.id,
             title:i.driver_name,
@@ -8,7 +9,7 @@ window.onload = function(){
         })
     })
     
-    api.get_open_reports().forEach(i =>{
+    myApi.open_reports().forEach(i =>{
         renderReportOption({
             report_code:i.id,
             title:i.driver_name,
@@ -16,7 +17,7 @@ window.onload = function(){
             targetEl:document.getElementById('open_reports')
         })
     })
-    api.get_closed_reports().forEach(i =>{
+    myApi.closed_reports().forEach(i =>{
         renderReportOption({
             report_code:i.id,
             title:i.driver_name,
