@@ -1,0 +1,20 @@
+.container-top{
+	
+    height: 420px;
+        
+    /* background: rebeccapurple; */
+        
+    width: 93%;
+        
+    overflow-y: auto;
+        
+    overflow-x: hidden;
+        
+    position: relative;
+        
+    top: 20px;
+        
+    left: 50%;
+        
+    transform: translateX(-50%);
+    }

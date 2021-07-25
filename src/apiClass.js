@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-class api{
+export default class api{
 	/* default database file path
 	which we work with */
 	db_path = "database.db"
@@ -24,7 +24,7 @@ class api{
 	}
 	new_report(driver_code,driver_name,report_text) {
 		var new_report_id = 1
-		if (this.parsed_database().reports.length != 0) {
+		if (this.parsed_database().reports.length !== 0) {
 			new_report_id = this.parsed_database().reports.length + 1
 		}
 		var new_report = {
@@ -40,12 +40,12 @@ class api{
 	}
 	open_reports(){
 		return this.parsed_database().reports.filter(report=>{
-			return report.is_open == true
+			return report.is_open === true
 		})
 	}
 	closed_reports(){
 		return this.parsed_database().reports.filter(report=>{
-			return report.is_open == false
+			return report.is_open === false
 		})
 		
 		
@@ -56,7 +56,7 @@ class api{
 		//find index of report which we want to change status of
 		var report_index = null;
 		cloned_database.reports.forEach((report,index)=>{
-			if(report.id == report_id){
+			if(report.id === report_id){
 				report_index = index
 			}
 		})

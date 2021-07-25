@@ -1,6 +1,0 @@
-get report => add state checking
-get reports => add state checking
-
-get_language duplicate implentation in 2 files
-change arrow icon in reports page when language changes 
-add sort button in reports page instead of showing all sort results
