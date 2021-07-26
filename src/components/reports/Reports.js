@@ -1,5 +1,6 @@
 import "./styles.css"
-
+//import api from '../../apiClass.js'
+//var myApi = new api()
 /* myApi.parsed_database().reports.forEach(i =>{
     renderReportOption({
         report_code:i.id,
@@ -24,8 +25,8 @@ myApi.closed_reports().forEach(i =>{
         info:"info",
         targetEl:document.getElementById('closed_reports')
     })
-})
- */
+}) */
+
 function Reports(props){
 	
     return (
