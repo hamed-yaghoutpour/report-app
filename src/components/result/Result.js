@@ -4,20 +4,16 @@ class Result extends Component{
 	constructor(props){
 		super(props)
 
-		var loading_message = "loading ..."
-		this.state = {
+		//var loading_message = "loading ..."
+		/* this.state = {
 			id:loading_message,
 			driver_code:loading_message,
 			driver_name:loading_message,
 			is_open:true,
 			report_text:loading_message,
 			report_code:loading_message
-		}
-
-	}
-	static getDerivedStateFromProps(props,state){
-		//get data from api by using props.report_code
-		return {
+		} */
+		this.state = {
 			id:1,
 			driver_code:12,
 			driver_name:'hamed',
@@ -26,8 +22,21 @@ class Result extends Component{
 			report_code:123
 		}
 	}
-	toggle_report_status_button_onclick(){
+	/* static getDerivedStateFromProps(props,state){
+		//get data from api by using props.report_code
+		return {}
+		return {
+			id:1,
+			driver_code:12,
+			driver_name:'hamed',
+			is_open:true,
+			report_text:'hamed is here and will stay here',
+			report_code:123
+		}
+	} */
+	toggle_report_status_button_onclick = () =>{
 		/* make call to api, then change state on success */
+		this.setState({is_open:!this.state.is_open})
 		
 	}
 	render(){
@@ -79,7 +88,7 @@ class Result extends Component{
 					</div>
 					<div className="col">
 					
-					<h5 className="text-warning" id="status_text">{this.state.report_is_open? "report is open":"report is closed"}</h5>
+					<h5 className="text-warning" id="status_text">{this.state.is_open? "report is open":"report is closed"}</h5>
 					
 					</div>
 					<div className="col">

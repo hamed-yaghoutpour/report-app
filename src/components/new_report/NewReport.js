@@ -1,11 +1,8 @@
 import "./styles.css"
-import api from  '../../apiClass.js'
+//import api from  '../../apiClass.js'
 import { Component } from "react"
 
 class NewReport extends Component{
-	constructor(props){
-		super(props)
-	}
 	
 	discard(){
 		document.getElementById('driver_code').value = ""

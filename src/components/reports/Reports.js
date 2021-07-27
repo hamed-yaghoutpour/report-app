@@ -1,4 +1,6 @@
+import { Component } from "react"
 import "./styles.css"
+import ReportOption from "../ReportOption"
 //import api from '../../apiClass.js'
 //var myApi = new api()
 /* myApi.parsed_database().reports.forEach(i =>{
@@ -27,9 +29,44 @@ myApi.closed_reports().forEach(i =>{
     })
 }) */
 
-function Reports(props){
-	
-    return (
+
+class Reports extends Component{
+	constructor(props){
+		super(props)
+		this.state = {
+			reports:[]
+		}
+	}
+	static getDerivedStateFromProps(props,state){
+		return {
+			reports:[
+				{
+					report_code:1,
+					title:'an open report ',
+					info:'some info',
+					is_open:true
+					
+				},
+				{
+					report_code:2,
+					title:'an close report ',
+					info:'some info',
+					is_open:false
+					
+				},
+				{
+					report_code:3,
+					title:'an open report ',
+					info:'some info',
+					is_open:true
+					
+				},
+
+			]
+		}
+	}
+	render(){
+		return (
 			<div className="container-fluid">
 				<div className="row mt-2">
 					<div className="col">
@@ -39,7 +76,16 @@ function Reports(props){
 				
 				<hr className="bg-light"/>
 				<div id="reports">
-				
+					{this.state.reports.map((report,index)=>{
+						return (
+							<ReportOption 
+							key={index}
+							report_code={report.report_code}
+							info={report.info}
+							title={report.title}
+							/>
+						)
+					})}
 				</div>
 					
 				<div className="row mt-5">
@@ -50,7 +96,17 @@ function Reports(props){
 				
 				<hr className="bg-light"/>
 				<div id="open_reports">
-
+					{this.state.reports.map((report,index)=>{
+						if(report.is_open === false) return null
+						return (
+							<ReportOption 
+							key={index}
+							report_code={report.report_code}
+							info={report.info}
+							title={report.title}
+							/>
+						)
+					})}
 				</div>
 				
 				<div className="row mt-5">
@@ -60,13 +116,20 @@ function Reports(props){
 				</div>				
 				<hr className="bg-light"/>
 				<div id="closed_reports">
-
+					{this.state.reports.map((report,index)=>{
+						if(report.is_open === true) return null
+						return (
+							<ReportOption 
+							key={index}
+							report_code={report.report_code}
+							info={report.info}
+							title={report.title}
+							/>
+						)
+					})}
 				</div>
-				
 			</div>
-		
-
-    )
+		)
+	}
 }
-
 export default Reports
