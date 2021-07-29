@@ -1,10 +1,10 @@
 import "./styles.css"
 function ReportOption(props){
-	/* props: report_code, title , info */
+	/* props: id, title , info */
 	return (
-		<div className="row report-option" onClick={() => window.location.replace('#/result/'+props.report_code)}>
+		<div className="row report-option" onClick={() => window.location.replace('#/result/'+props.id)}>
 			<div className="col-3 d-flex align-items-center justify-content-center">
-				<h6 className="bg-warning rounded p-1">#{props.report_code}</h6>
+				<h6 className="bg-warning rounded p-1">#{props.id}</h6>
 			</div>
 			<div className="col-7 d-flex flex-column" style={{overflow:"hidden"}}>
 				<div>

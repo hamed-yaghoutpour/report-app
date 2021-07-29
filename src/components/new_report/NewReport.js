@@ -1,6 +1,6 @@
 import "./styles.css"
-//import api from  '../../apiClass.js'
 import { Component } from "react"
+var api = require('../../browser_api')
 
 class NewReport extends Component{
 	
@@ -14,11 +14,13 @@ class NewReport extends Component{
 		var driver_name = document.getElementById('driver_name').value
 		var report_text = document.getElementById('report_text').value
 
-		//myApi.new_report(driver_code,driver_name,report_text)
-		//alert('done !')
-		alert(driver_code)
-		alert(driver_name)
-		alert(report_text)
+		api.new_report(driver_code,driver_name,report_text)
+		.then(was_ok=>{
+			if(was_ok){
+				console.log('done')
+			}
+		})
+		
 	}
 	render(){
 		return (

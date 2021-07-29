@@ -1,33 +1,7 @@
 import { Component } from "react"
 import "./styles.css"
 import ReportOption from "../ReportOption"
-//import api from '../../apiClass.js'
-//var myApi = new api()
-/* myApi.parsed_database().reports.forEach(i =>{
-    renderReportOption({
-        report_code:i.id,
-        title:i.driver_name,
-        info:"info",
-        targetEl:document.getElementById('reports')
-    })
-})
-
-myApi.open_reports().forEach(i =>{
-    renderReportOption({
-        report_code:i.id,
-        title:i.driver_name,
-        info:"info",
-        targetEl:document.getElementById('open_reports')
-    })
-})
-myApi.closed_reports().forEach(i =>{
-    renderReportOption({
-        report_code:i.id,
-        title:i.driver_name,
-        info:"info",
-        targetEl:document.getElementById('closed_reports')
-    })
-}) */
+var api = require('../../browser_api')
 
 
 class Reports extends Component{
@@ -36,35 +10,23 @@ class Reports extends Component{
 		this.state = {
 			reports:[]
 		}
+		api.get_reports()
+		.then(reports=>{
+			console.log(reports)
+			this.setState({
+				reports:reports.map(value => {
+					return {
+						id:value.id,
+						title:value.driver_name,
+						info:"some info",
+						is_open:value.is_open
+					}	
+				})
+			})
+		})
+		
 	}
-	static getDerivedStateFromProps(props,state){
-		return {
-			reports:[
-				{
-					report_code:1,
-					title:'an open report ',
-					info:'some info',
-					is_open:true
-					
-				},
-				{
-					report_code:2,
-					title:'an close report ',
-					info:'some info',
-					is_open:false
-					
-				},
-				{
-					report_code:3,
-					title:'an open report ',
-					info:'some info',
-					is_open:true
-					
-				},
-
-			]
-		}
-	}
+	
 	render(){
 		return (
 			<div className="container-fluid">
@@ -80,7 +42,7 @@ class Reports extends Component{
 						return (
 							<ReportOption 
 							key={index}
-							report_code={report.report_code}
+							id={report.id}
 							info={report.info}
 							title={report.title}
 							/>
@@ -101,7 +63,7 @@ class Reports extends Component{
 						return (
 							<ReportOption 
 							key={index}
-							report_code={report.report_code}
+							id={report.id}
 							info={report.info}
 							title={report.title}
 							/>
@@ -121,7 +83,7 @@ class Reports extends Component{
 						return (
 							<ReportOption 
 							key={index}
-							report_code={report.report_code}
+							id={report.id}
 							info={report.info}
 							title={report.title}
 							/>

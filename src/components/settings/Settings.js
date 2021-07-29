@@ -1,10 +1,16 @@
 import { Component } from "react"
 import "./styles.css"
+var api = require('../../browser_api')
 
 class Settings extends Component{
 	reset_factory(){
-		//myApi.reset_database()
-		window.location.assign('#/new_report')
+		api.reset_database()
+		.then(bool=>{
+			if(bool){
+				window.location.assign('#/new_report')
+			}
+		})
+		
 	}
 	render(){
 		return (
