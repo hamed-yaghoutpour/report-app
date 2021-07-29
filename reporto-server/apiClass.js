@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-export default class api{
+class api{
 	/* default database file path
 	which we work with */
 	db_path = "database.db"
@@ -50,6 +50,9 @@ export default class api{
 		
 		
 	}
+	get_reports(){
+		return this.parsed_database().reports
+	}
 	toggle_report_status(report_id){
 		var cloned_database = this.parsed_database()
 		
@@ -67,3 +70,5 @@ export default class api{
 		fs.rmSync(this.db_path)
 	}
 }
+
+module.exports = {api:api}
