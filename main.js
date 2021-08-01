@@ -1,30 +1,24 @@
-const {app,BrowserWindow,ipcMain} = require('electron')
+const {app,BrowserWindow} = require('electron')
 let mainWindow;
 
 function createWindow () {
+    //start express js server on port: 7777
+    require('./reporto-server/server')  
     mainWindow = new BrowserWindow({
       width: 700,
       height: 600,
       frame:false,
       backgroundColor:"#22220666",
-      resizable:false,
-      webPreferences:{
-        nodeIntegration: true,
-        contextIsolation:false
-      }
+      resizable:false
   })
-
-  mainWindow.loadFile('./reporto/new_report/index.html')
+  mainWindow.loadFile('./build/index.html')
 }
-
-ipcMain.on('quit_app',()=>{
-  app.quit()
-})
 
 app.whenReady().then(createWindow)
 
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {
+
     app.quit()
   }
 })

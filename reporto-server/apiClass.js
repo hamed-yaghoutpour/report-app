@@ -3,12 +3,13 @@ const fs = require('fs')
 class api{
 	/* default database file path
 	which we work with */
-	db_path = "database.db"
+	db_path = "./database.db"
 	constructor () {
 		this.prepare_for_first_run()
 	}
 	prepare_for_first_run(){
 		if(!fs.existsSync(this.db_path)){
+			console.log("database was not there")
 			var empty_file_structure = {
 				reports:[]
 			}
@@ -17,6 +18,7 @@ class api{
 	}
 	parsed_database(){
 		var file_content = fs.readFileSync(this.db_path,'utf8')
+		console.log(__dirname +this.db_path)
 		return JSON.parse(file_content)
 	}
 	write_text_to_database(text) {
@@ -67,7 +69,8 @@ class api{
 		this.write_text_to_database(JSON.stringify(cloned_database))
 	}
 	reset_database(){
-		fs.rmSync(this.db_path)
+		fs.rmdir(this.db_path)
+		this.prepare_for_first_run()
 	}
 }
 

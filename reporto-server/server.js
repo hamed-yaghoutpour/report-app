@@ -19,6 +19,7 @@ app.all('/new_report',(req,res)=>{
     res.send('ok')
 })
 app.all('/reports',(req,res)=>{
+    console.log(JSON.stringify(myApi.get_reports()))
     res.send(JSON.stringify(myApi.get_reports()))
 })
 app.all('/reset_database',(req,res)=>{
@@ -29,4 +30,5 @@ app.all('/toggle_report_status',(req,res)=>{
     myApi.toggle_report_status(Number(req.query.report_code))
     res.send('ok')
 })
-app.listen(7777)
+var server = app.listen(7777)
+module.exports = {server}

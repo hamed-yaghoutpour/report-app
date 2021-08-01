@@ -10,11 +10,13 @@ class Result extends Component{
 			driver_name:loading_message,
 			is_open:true,
 			report_text:loading_message,
-			report_code:loading_message
-		}
-		this.setState({
 			report_code:Number(this.props.report_code)
-		})
+		}
+		
+		
+	
+	}
+	componentDidMount(){
 		api.get_reports().then(reports=>{
 			reports.forEach(report=>{
 				if(report.id === Number(this.props.report_code)){
@@ -28,9 +30,10 @@ class Result extends Component{
 				}
 			})
 		})
-		
 	}
-	
+	go_back_button_handler(){
+		window.location.assign('#/reports')
+	}
 	toggle_report_status_button_onclick = () =>{
 		api.toggle_report_status(Number(this.props.report_code))
 		.then(bool=>{
@@ -97,7 +100,7 @@ class Result extends Component{
 				
 				<div className="row ml-1 mb-3 mt-4">
 					<div className="col-4  ml-1">
-						<button className="btn btn-info"><a href="../reports/index.html">go back</a></button>
+						<button className="btn btn-info" onClick={this.go_back_button_handler}>go back</button>
 					
 					</div>
 				</div>	
