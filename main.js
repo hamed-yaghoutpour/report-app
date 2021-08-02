@@ -1,9 +1,9 @@
 const {app,BrowserWindow} = require('electron')
 let mainWindow;
-
+let server;
 function createWindow () {
     //start express js server on port: 7777
-    require('./reporto-server/server')  
+    server = require('./reporto-server/server').server  
     mainWindow = new BrowserWindow({
       width: 700,
       height: 600,
@@ -18,7 +18,7 @@ app.whenReady().then(createWindow)
 
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {
-
+    server.close()
     app.quit()
   }
 })

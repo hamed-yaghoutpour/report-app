@@ -1,18 +1,10 @@
 .appFrame{
-	
-position: absolute;
-    
-height: 500px;
-    
-width: 400px;
-    
-background: black;
-    
-border-radius: 10px;
-    
-top: 50%;
-    
-left: 50%;
-    
-transform: translate(-50%,-50%);
+    position: absolute; 
+    height: 500px; 
+    width: 400px; 
+    background: black; 
+    border-radius: 10px; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%,-50%);
 }

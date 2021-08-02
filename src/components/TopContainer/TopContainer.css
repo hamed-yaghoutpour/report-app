@@ -1,6 +1,6 @@
 .container-top{
 	
-    height: 420px;
+    height: 410px;
         
     /* background: rebeccapurple; */
         
@@ -18,3 +18,9 @@
         
     transform: translateX(-50%);
     }
+.container-top::-webkit-scrollbar{
+    width: 10px;
+}
+.container-top::-webkit-scrollbar-thumb{
+    background: gray;
+}
