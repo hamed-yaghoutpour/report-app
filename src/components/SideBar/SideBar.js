@@ -1,8 +1,8 @@
-import "./NavBar.css"
+import "./SideBar.css"
 
-function NavBar(props){
+function SideBar(props){
 	return(
-	<div id="nav-bar" className="bg-info">
+	<div id="SideBar" className="bg-info">
 		<div className="option" id="go_to_new_reports_page" onClick={()=>{window.location.assign('#/new_report')}}>
 			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" className="bi bi-clipboard-plus" viewBox="0 0 16 16">
 				<path fillRule="evenodd" d="M8 7a.5.5 0 0 1 .5.5V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5A.5.5 0 0 1 8 7z"/>
@@ -34,4 +34,4 @@ function NavBar(props){
 	
 }
 
-export default NavBar;
+export default SideBar;

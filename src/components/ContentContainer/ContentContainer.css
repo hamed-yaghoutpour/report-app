@@ -1,4 +1,4 @@
-.container-top{
+.content-container{
 	
     height: 410px;
         
@@ -18,9 +18,9 @@
         
     transform: translateX(-50%);
     }
-.container-top::-webkit-scrollbar{
+.content-container::-webkit-scrollbar{
     width: 10px;
 }
-.container-top::-webkit-scrollbar-thumb{
+.content-container::-webkit-scrollbar-thumb{
     background: gray;
 }

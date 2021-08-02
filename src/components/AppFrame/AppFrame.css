@@ -1,9 +1,9 @@
 .appFrame{
     position: absolute; 
     height: 500px; 
-    width: 400px; 
+    width: 580px; 
     background: black; 
-    border-radius: 10px; 
+    border-radius: 5px; 
     top: 50%; 
     left: 50%; 
     transform: translate(-50%,-50%);
