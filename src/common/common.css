@@ -18,7 +18,9 @@ html,body{
 .fa{
 	direction:rtl;
 }
-
+.dir-rtl{
+	direction: rtl;
+}
 
 
 
