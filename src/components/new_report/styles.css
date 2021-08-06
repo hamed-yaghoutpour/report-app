@@ -1,5 +1,5 @@
-#report_text{
-
+#new-report #report_text{
+	height: 127px;
 	resize:none;
 }
 #quit_app{
@@ -18,4 +18,7 @@
 }
 #quit_app:hover{
 	background: red;
+}
+#new_report input,#new_report textarea{
+	background: rgb(242,242,247);
 }

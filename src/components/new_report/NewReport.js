@@ -28,47 +28,47 @@ class NewReport extends Component{
 			<div id="new-report">
 				<div className="container-fluid">
 					<div className="row mt-2 dir-rtl">
-						<h1 className="text-primary">ثبت گزارش جدید</h1>
+						<h1 style={{color:'aqua'}}>ثبت گزارش جدید</h1>
 					</div>
 					<hr/>
 					<div className="row mb-1 dir-rtl">
 						<div className="col-8">
-							<h4 className="text-info">کد راننده مورد نظر :</h4>
+							<h4 style={{color:'white'}}>کد راننده مورد نظر :</h4>
 						</div>
 						<div className="col">
-							<input type="number" className="form-control text-light bg-dark border-0" min="0" id="driver_code"/>
+							<input type="number" className="form-control border-0" min="0" id="driver_code"/>
 						</div>
 					</div>
 					<hr/>
 					<div className="row mb-2 dir-rtl">
 						<div className="col-6">
-							<h4 className="text-info">نام کامل راننده :</h4>
+							<h4 style={{color:'white'}}>نام کامل راننده :</h4>
 						</div>
 						<div className="col">
-							<input className="form-control text-light bg-dark border-0" type="text" id="driver_name"/>
+							<input className="form-control border-0" type="text" id="driver_name"/>
 						</div>
 						
 					</div>
 					<hr/>
 					<div className="row mb-3 dir-rtl">
 						
-						<h4 className="text-info">متن گزارش را وارد کنید :</h4>
+						<h4 style={{color:'white'}}>متن گزارش را وارد کنید :</h4>
 						
 					</div>
 					
 					<div className="row d-flex justify-content-center">
 						<div className="col-12">
-							<textarea className="form-control text-light bg-dark border-0 dir-rtl" id="report_text"></textarea>
+							<textarea className="form-control  border-0 dir-rtl" id="report_text"></textarea>
 						</div>
 						
 					</div>
 					
-					<div className="row mt-3 mb-3">
-						<div className="col-8 d-grid">
-							<button className="btn btn-primary" id="add_new_report" onClick={this.add_new_report}>ثبت نهایی گزارش</button>
+					<div className="row mt-3 mb-3 px-3">
+						<div className="col-8 g-0">
+							<button className="btn btn-primary w-100" id="add_new_report" onClick={this.add_new_report}>ثبت نهایی گزارش</button>
 						</div>
-						<div className="col-4 d-flex justify-content-end">
-							<button className="btn btn-outline-danger" id="discard" onClick={this.discard}>بی خیال</button>
+						<div className="col-4 g-0 justify-content-end">
+							<button className="btn btn-outline-danger mx-2 w-100" id="discard" onClick={this.discard}>بی خیال</button>
 						</div>
 					</div>
 				</div>

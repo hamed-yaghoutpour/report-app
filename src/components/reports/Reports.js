@@ -1,4 +1,5 @@
 import { Component } from "react"
+import "../../common/lib/bootstrap.min.css"
 import "./styles.css"
 import ReportOption from "../ReportOption"
 var api = require('../../browser_api')
@@ -8,13 +9,13 @@ class Reports extends Component{
 	constructor(props){
 		super(props)
 		this.state = {
-			reports:[]
+			reports_to_show:[],
+			reports_category:"all_reports"
 		}
 		api.get_reports()
 		.then(reports=>{
-			console.log(reports)
 			this.setState({
-				reports:reports.map(value => {
+				reports_to_show:reports.map(value => {
 					return {
 						id:value.id,
 						title:value.driver_name,
@@ -26,19 +27,102 @@ class Reports extends Component{
 		})
 		
 	}
+	next_category = () =>{
 	
+		if(this.state.reports_category === "all_reports"){
+			api.get_reports()
+			.then(reports=>{
+				reports = reports.filter(report=>{
+					return report.is_open
+				})
+				this.setState({
+					reports_to_show:reports.map(value => {
+						
+						return {
+							id:value.id,
+							title:value.driver_name,
+							info:"some info",
+							is_open:value.is_open
+						}	
+					})
+				})
+				this.setState({
+					reports_category:'open_reports'
+				})
+			})
+		}
+		if(this.state.reports_category === "open_reports"){
+			api.get_reports()
+			.then(reports=>{
+				reports = reports.filter(report=>{
+					return !report.is_open
+				})
+				this.setState({
+					
+					reports_to_show:reports.map(value => {
+						
+						return {
+							id:value.id,
+							title:value.driver_name,
+							info:"some info",
+							is_open:value.is_open
+						}	
+					})
+				})
+				this.setState({
+					reports_category:'closed_reports'
+				})
+			})	
+		}
+		if(this.state.reports_category === "closed_reports"){
+			api.get_reports()
+			.then(reports=>{
+				this.setState({
+					reports_to_show:reports.map(value => {
+						return {
+							id:value.id,
+							title:value.driver_name,
+							info:"some info",
+							is_open:value.is_open
+						}	
+					})
+				})
+			})
+			this.setState({
+				reports_category:'all_reports'
+			})
+		}
+		
+	
+	}
+	reports_category_in_persian = ()=>{
+		if(this.state.reports_category=== "all_reports"){
+			return "همه گزارش ها"
+		}else if(this.state.reports_category=== "open_reports"){
+			return "رسیدگی نشده ها"
+		}else if(this.state.reports_category=== "closed_reports"){
+			return "رسیدگی شده ها"
+		}
+	}
 	render(){
 		return (
 			<div className="container-fluid">
-				<div className="row mt-2">
-					<div className="col">
-						<h1 className="bg-primary text-light r-title">all reports</h1>
+				<div className="row mt-2 dir-rtl">
+					<div className="col-9">
+						<h1 className="r-title">{this.reports_category_in_persian()}</h1>
+					</div>
+					<div className="align-items-center col-3 d-flex justify-content-center" id="sort-icon-container">
+						
+						<svg onClick={this.next_category} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" viewBox="0 0 16 16">
+							<path d="M3.5 2.5a.5.5 0 0 0-1 0v8.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L3.5 11.293V2.5zm3.5 1a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
+						</svg>
+					
 					</div>
 				</div>
 				
 				<hr className="bg-light"/>
 				<div id="reports">
-					{this.state.reports.map((report,index)=>{
+					{this.state.reports_to_show.map((report,index)=>{
 						return (
 							<ReportOption 
 							key={index}
@@ -50,46 +134,7 @@ class Reports extends Component{
 					})}
 				</div>
 					
-				<div className="row mt-5">
-					<div className="col">
-						<h1 className="bg-primary text-light r-title">open reports</h1>
-					</div>
-				</div>
 				
-				<hr className="bg-light"/>
-				<div id="open_reports">
-					{this.state.reports.map((report,index)=>{
-						if(report.is_open === false) return null
-						return (
-							<ReportOption 
-							key={index}
-							id={report.id}
-							info={report.info}
-							title={report.title}
-							/>
-						)
-					})}
-				</div>
-				
-				<div className="row mt-5">
-					<div className="col">
-						<h1 className="bg-primary text-light r-title">closed reports</h1>
-					</div>
-				</div>				
-				<hr className="bg-light"/>
-				<div id="closed_reports">
-					{this.state.reports.map((report,index)=>{
-						if(report.is_open === true) return null
-						return (
-							<ReportOption 
-							key={index}
-							id={report.id}
-							info={report.info}
-							title={report.title}
-							/>
-						)
-					})}
-				</div>
 			</div>
 		)
 	}

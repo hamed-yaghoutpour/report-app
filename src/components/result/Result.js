@@ -1,5 +1,7 @@
 import { Component } from "react";
+import "../../common/common.css"
 var api = require('../../browser_api')
+
 
 class Result extends Component{
 	constructor(props){
@@ -43,64 +45,64 @@ class Result extends Component{
 	}
 	render(){
 		return (
-			<div id="result">
-				<div className="row">
-					<h1 className="text-primary mt-2" >your report saved !</h1>
+			<div id="result" className="container-fluid">
+				<div className="row dir-rtl">
+					<h1 className="text-light mt-2" >با موفقیت ثبت شد !</h1>
 				</div>
 				<hr/>
-				<div className="row">
+				<div className="row dir-rtl">
 					<div className="col-6">
-						<h5 className="text-info">report id:</h5>
+						<h5 className="text-info">کد گزارش :</h5>
 					</div>
 					<div className="col">
 						<h5 className="text-warning" id="report_code" >{this.state.report_code}</h5>
 					</div>
 				</div>
 				<hr/>
-				<div className="row">
+				<div className="row dir-rtl">
 					<div className="col-6">
-						<h5 className="text-info">driver name:</h5>
+						<h5 className="text-info">نام راننده :</h5>
 					</div>
 					<div className="col">
 						<h5 className="text-warning" id='driver_name'>{this.state.driver_name}</h5>
 					</div>
 				</div>
 				<hr/>
-				<div className="row">
+				<div className="row dir-rtl">
 					<div className="col-6">
-						<h5 className="text-info" >driver code:</h5>
+						<h5 className="text-info" >کد راننده :</h5>
 					</div>
 					<div className="col">
 						<h5 className="text-warning" id="driver_code">{this.state.driver_code}</h5>
 					</div>
 				</div>
 				<hr/>
-				<div className="row">
+				<div className="row dir-rtl">
 					<div className="col-6">
-						<h5 className="text-info">report text:</h5>
+						<h5 className="text-info">متن گزارش :</h5>
 					</div>
 					<div className="col">
 						<h5 className="text-warning" id="report_text">{this.state.report_text}</h5>
 					</div>
 				</div>
 				<hr/>
-				<div className="row">
+				<div className="row dir-rtl">
 					<div className="col-4">
-					<h5 className="text-info">status:</h5>
+					<h5 className="text-info">وضعیت گزارش :</h5>
 					</div>
 					<div className="col">
 					
-					<h5 className="text-warning" id="status_text">{this.state.is_open? "report is open":"report is closed"}</h5>
+					<h5 className="text-warning" id="status_text">{this.state.is_open? "به گزارش رسیدگی نشده است":"قبلا به گزارش رسیدگی شده است"}</h5>
 					
 					</div>
 					<div className="col">
-					<button className="btn btn-dark btn-sm" id="toggle_button" onClick={this.toggle_report_status_button_onclick}>toggle</button>
+					<button className="btn btn-dark btn-sm" id="toggle_button" onClick={this.toggle_report_status_button_onclick}>تغییر وضعیت</button>
 					</div>
 				</div>
 				
 				<div className="row ml-1 mb-3 mt-4">
-					<div className="col-4  ml-1">
-						<button className="btn btn-info" onClick={this.go_back_button_handler}>go back</button>
+					<div className="col  ml-1">
+						<button className="btn btn-info w-100" onClick={this.go_back_button_handler}>بازگشت</button>
 					
 					</div>
 				</div>	

@@ -2,7 +2,7 @@ import "./SideBar.css"
 
 function SideBar(props){
 	return(
-	<div id="SideBar" className="bg-info">
+	<div id="SideBar">
 		<div className="subject-option">
 			به ریپورتو خوش آمدید
 		</div>

@@ -6,6 +6,7 @@
     position: relative;
     top:0px;
     left: 0px;
+    padding-top: 20px;
 }
 .content-container::-webkit-scrollbar{
     width: 10px;

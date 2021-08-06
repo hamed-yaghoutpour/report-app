@@ -19,10 +19,10 @@ class Settings extends Component{
 			<div id="settings">
 				<div className="container-fluid">
 					<div className="row mt-2 dir-rtl">
-						<h1 className="text-primary">settings</h1>
+						<h1 className="text-light">تنظیمات</h1>
 					</div>
 				</div>
-				<hr/>
+				<hr className="bg-light mx-auto" style={{width: "90%"}} />
 				<div className="row mb-2 mx-1 dir-rtl">
 					<div className="col-6">
 						<button className="btn btn-info" id="reset_factory" onClick={this.reset_factory}>بازنشانی کارخانه</button>

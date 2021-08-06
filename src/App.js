@@ -19,7 +19,7 @@ function App(){
             <ContentContainer>
                 <HashRouter>
                     <Switch>
-                        <Route exact path="/s" render={p=><NewReport />  }/>
+                        <Route exact path="/" render={p=><NewReport />  }/>
                         <Route path="/reports" render={p=><Reports/>} />
                         <Route path="/settings" render={p=><Settings />} />
                         <Route path="/result/:report_code" render={(props)=><Result report_code={props.match.params.report_code}/> }/>
