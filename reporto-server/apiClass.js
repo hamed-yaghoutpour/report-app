@@ -9,7 +9,6 @@ class api{
 	}
 	prepare_for_first_run(){
 		if(!fs.existsSync(this.db_path)){
-			console.log("database was not there")
 			var empty_file_structure = {
 				reports:[]
 			}
@@ -49,8 +48,6 @@ class api{
 		return this.parsed_database().reports.filter(report=>{
 			return report.is_open === false
 		})
-		
-		
 	}
 	get_reports(){
 		return this.parsed_database().reports
@@ -69,8 +66,10 @@ class api{
 		this.write_text_to_database(JSON.stringify(cloned_database))
 	}
 	reset_database(){
-		fs.rmdir(this.db_path)
-		this.prepare_for_first_run()
+		fs.unlink(this.db_path,()=>{
+			
+			this.prepare_for_first_run()
+		})
 	}
 }
 
