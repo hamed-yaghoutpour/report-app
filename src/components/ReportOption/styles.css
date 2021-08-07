@@ -6,14 +6,20 @@
     border-radius: 7px;
 }
 .report-option {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     width: 338px;
     border-radius: 3px;
     padding: 5px 0px 5px 0px;
     position: relative;
     margin-bottom: 10px;
+    background: rgb(72 72 74 / 54%);
     margin-left: auto;
     /* left: 9px; */
+    border-radius: 15px;
     margin-right: auto;
     width: 100%;
+    cursor: pointer;
+}
+.report-option svg#arrow-icon{
+    transform: rotate(180deg);
 }

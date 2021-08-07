@@ -19,7 +19,7 @@ class Settings extends Component{
 			<div id="settings">
 				<div className="container-fluid">
 					<div className="row mt-2 dir-rtl">
-						<h1 className="text-light">تنظیمات</h1>
+						<h2 className="text-light">تنظیمات</h2>
 					</div>
 				</div>
 				<hr className="bg-light mx-auto" style={{width: "90%"}} />

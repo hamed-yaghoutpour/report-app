@@ -109,7 +109,7 @@ class Reports extends Component{
 			<div className="container-fluid">
 				<div className="row mt-2 dir-rtl">
 					<div className="col-9">
-						<h1 className="r-title">{this.reports_category_in_persian()}</h1>
+						<h2 className="r-title">{this.reports_category_in_persian()}</h2>
 					</div>
 					<div className="align-items-center col-3 d-flex justify-content-center" id="sort-icon-container">
 						
@@ -120,7 +120,7 @@ class Reports extends Component{
 					</div>
 				</div>
 				
-				<hr className="bg-light"/>
+				<hr className="bg-light mt-2"/>
 				<div id="reports">
 					{this.state.reports_to_show.map((report,index)=>{
 						return (
