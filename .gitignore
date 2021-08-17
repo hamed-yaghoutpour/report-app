@@ -1,4 +1,4 @@
 node_modules/
 front-end/node_modules/
 reporto-server/database.db
-front-end/build
+front-end/build/
