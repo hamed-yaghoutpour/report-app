@@ -3,7 +3,6 @@ html,body{
 	height:100%;
 	padding:0px;
 	margin:0px;
-	background: #22220666
 }
 
 .no_padding{
@@ -21,7 +20,9 @@ html,body{
 .dir-rtl{
 	direction: rtl;
 }
-
+#root{
+	background-color: aqua;
+}
 
 
 

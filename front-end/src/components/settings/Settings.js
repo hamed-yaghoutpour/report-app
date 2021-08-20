@@ -18,8 +18,8 @@ class Settings extends Component{
 		return (
 			<div id="settings">
 				<div className="container-fluid">
-					<div className="row mt-2 dir-rtl">
-						<h2 className="text-light">تنظیمات</h2>
+					<div className="row dir-rtl">
+						<h3 className="text-light">تنظیمات</h3>
 					</div>
 				</div>
 				<hr className="bg-light mx-auto" style={{width: "90%"}} />

@@ -17,7 +17,6 @@ class api{
 	}
 	parsed_database(){
 		var file_content = fs.readFileSync(this.db_path,'utf8')
-		console.log(__dirname +this.db_path)
 		return JSON.parse(file_content)
 	}
 	write_text_to_database(text) {

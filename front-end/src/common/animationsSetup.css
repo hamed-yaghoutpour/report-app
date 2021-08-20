@@ -1,0 +1,14 @@
+@keyframes fadeIn {
+    from {
+        transform: translateY(-10px) scale(0.8);
+    }
+    to{
+        transform: unset;
+    }
+}
+.animate-children-fade *{
+    animation: fadeIn;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 1;
+}

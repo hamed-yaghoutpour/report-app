@@ -1,4 +1,5 @@
 import { Component } from "react";
+import TipBox from "../TipBox/TipBox";
 import "./SideBar.css"
 class SideBar extends Component{
 	constructor(){
@@ -41,7 +42,9 @@ class SideBar extends Component{
 					
 				</div>
 				<div className="subject-option">
-					به ریپورتو خوش آمدید
+					<p className="pt-1">ریپورتو - ویرایش ۲</p>
+					<hr className="my-0 py-0" />
+					<TipBox content="hamed"/>
 				</div>
 				  
 				<div active={this.state.activeOption === "new_report"?"active":undefined} className="option first-option" id="go_to_new_reports_page" onClick={this.optionClickHandler1}>

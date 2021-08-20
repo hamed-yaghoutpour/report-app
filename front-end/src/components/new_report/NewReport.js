@@ -27,32 +27,36 @@ class NewReport extends Component{
 		return (
 			<div id="new-report">
 				<div className="container-fluid">
-					<div className="row mt-2 dir-rtl">
-						<h2 style={{color:'aqua'}}>ثبت گزارش جدید</h2>
+					<div className="row dir-rtl ">
+						<h3 style={{color:'aqua'}}>ثبت گزارش جدید</h3>
 					</div>
+
 					<hr className="bg-light mb-4"/>
-					<div className="row mb-1 dir-rtl">
+
+					<div className="row mb-1 dir-rtl mt-2 d-flex align-items-center">
 						<div className="col-8">
-							<h5 style={{color:'white'}}>کد راننده مورد نظر :</h5>
+							<h6 style={{color:'white'}}>کد راننده مورد نظر :</h6>
 						</div>
 						<div className="col">
 							<input type="number" className="form-control " min="0" id="driver_code"/>
 						</div>
 					</div>
-					<hr/>
-					<div className="row mb-2 dir-rtl">
+
+					<hr className="m-3 mb-2"/>
+
+					<div className="row mb-2 dir-rtl d-flex align-items-center">
 						<div className="col-6">
-							<h5 style={{color:'white'}}>نام کامل راننده :</h5>
+							<h6 style={{color:'white'}}>نام کامل راننده :</h6>
 						</div>
 						<div className="col">
 							<input className="form-control " type="text" id="driver_name"/>
 						</div>
 						
 					</div>
-					<hr/>
+					<hr className="m-3 mb-2"/>
 					<div className="row mb-3 dir-rtl">
 						
-						<h5 style={{color:'white'}}>متن گزارش را وارد کنید :</h5>
+						<h6 style={{color:'white'}}>متن گزارش را وارد کنید :</h6>
 						
 					</div>
 					

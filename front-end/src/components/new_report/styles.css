@@ -22,5 +22,6 @@
 #new-report input,#new-report textarea{
 	background-color: rgb(99 99 102 / 70%);
 	border:1px solid rgba(0 ,255 ,255,0.4);
-	color:white
+	color:white;
+	height: 32px;
 }

@@ -4,10 +4,14 @@ const path = require('path')
 const serverFile  = require('./reporto-server/server.js')
 function createWindow () {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600
+  mainWindow = new BrowserWindow({
+      width: 700,
+      height: 600,
+      frame:false,
+      backgroundColor:"#000000",
+      resizable:false
   })
+  mainWindow.loadFile('./build/index.html')
   // and load the index.html of the app.
   mainWindow.loadFile('./front-end/build/index.html')
 
