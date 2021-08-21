@@ -10,7 +10,7 @@
     transition: 0.2s;
 }
 #popUpDialogContainer[hidden]{
-    display: hidden;
+    display: none;
 }
 #popUpDialog{
     min-height: 150px;
